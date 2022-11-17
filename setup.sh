@@ -55,7 +55,6 @@ go install mvdan.cc/gofumpt@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
 go install github.com/swaggo/swag/cmd/swag@latest
 go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
-
 source /etc/environment && export PATH=$(go env GOPATH)/bin:$PATH
 echo 'export PATH=$(go env GOPATH)/bin:$PATH' >> ~/.zshrc
 source ~/.zshrc
@@ -63,19 +62,13 @@ source ~/.zshrc
 # python
 
 sudo pacman -Syu
-
 sudo pacman -Sy libxau libxi libxss libxtst libxcursor libxcomposite libxdamage libxfixes libxrandr libxrender mesa-libgl alsa-lib libglvnd
-
 wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
 bash Anaconda3-2020.11-Linux-x86_64.sh
-
 conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-
 echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/" >> ~/.zshrc
 source ~/.zshrc
-
 python -m pip install tensorflow
-
 python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 
 # docker setup
