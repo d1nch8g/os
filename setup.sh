@@ -19,6 +19,8 @@ gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat
 dconf write /org/gnome/desktop/wm/keybindings/switch-windows "['<Super>Tab', '<Alt>Tab']"
 dconf write /org/gnome/desktop/wm/keybindings/switch-applications "['']"
 
+gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
+
 # packages
 
 sudo pacman -Syu
