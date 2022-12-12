@@ -1,3 +1,1 @@
-# manjaro_setup
-
-List of commands to setup fresh pc for manjaro.
+# Repository for user os setup for Dancheg97
