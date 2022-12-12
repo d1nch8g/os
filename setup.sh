@@ -107,10 +107,6 @@ code --install-extension jock.svg
 code --install-extension svelte.svelte-vscode
 code --install-extension Orta.vscode-jest
 
-# Shortcuts
+cp ~/os/keybindings.json ~/.config/'Code - OSS'/User/keybindings.json
+cp ~/os/settings.json ~/.config/'Code - OSS'/User/settings.json
 
-gnome-terminal -- sudo bash -c 'wg-quick down /home/dancheg97/Documents/wg.conf;wg-quick up /home/dancheg97/Documents/wg.conf'
-
-# Shortcuts storage
-
-cd ~/.config/'Code - OSS'/User
