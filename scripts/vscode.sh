@@ -29,6 +29,6 @@ code --install-extension svelte.svelte-vscode
 code --install-extension Orta.vscode-jest
 code --install-extension raynigon.nginx-formatter
 
-cp ~/os/.vscode/keybindings.json ~/.config/'Code - OSS'/User/keybindings.json
-cp ~/os/.vscode/settings.json ~/.config/'Code - OSS'/User/settings.json
+ln -s ~/os/.vscode/keybindings.json ~/.config/'Code - OSS'/User/keybindings.json
+ln -s ~/os/.vscode/settings.json ~/.config/'Code - OSS'/User/settings.json
 
