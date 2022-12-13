@@ -528,4 +528,5 @@
   "python.formatting.provider": "black",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "window.zoomLevel": 1
+  // example
 }
