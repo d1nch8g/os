@@ -19,11 +19,12 @@ Installation process:
 6. Set up conda and tensorflow for full usage of GPU for machine learning.
 
 ```sh
-sh ~/os/scripts/packages.sh
-sh ~/os/scripts/user.sh
-sh ~/os/scripts/vscode.sh
-sh ~/os/scripts/go.sh
-sh ~/os/scripts/docker.sh
-sh ~/os/scripts/conda.sh
-sh ~/os/scripts/tensorflow.sh
+cd ~/os/scripts
+sh packages
+sh user
+sh vscode
+sh go
+sh docker
+sh conda
+sh tensorflow
 ```
