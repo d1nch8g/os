@@ -12,38 +12,18 @@ Installation assumes, that you have cloned `os` repo to `HOME` directory.
 Installation process:
 
 1. Packages, install all basic packages to get started.
-
-```sh
-sh ~/os/scripts/packages.sh
-```
-
 2. User, set user git, shortcuts and other user relevant stuff.
-
-```sh
-sh ~/os/scripts/user.sh
-```
-
 3. Code, install vscode and set up it's and extensions and shortcuts.
-
-```sh
-sh ~/os/scripts/vscode.sh
-```
-
 4. Go, install golang and some usefull packages.
-
-```sh
-sh ~/os/scripts/go.sh
-```
-
 5. Docker - containers enhanced.
-
-```sh
-sh ~/os/scripts/docker.sh
-```
-
 6. Set up conda and tensorflow for full usage of GPU for machine learning.
 
 ```sh
+sh ~/os/scripts/packages.sh
+sh ~/os/scripts/user.sh
+sh ~/os/scripts/vscode.sh
+sh ~/os/scripts/go.sh
+sh ~/os/scripts/docker.sh
 sh ~/os/scripts/conda.sh
 sh ~/os/scripts/tensorflow.sh
 ```

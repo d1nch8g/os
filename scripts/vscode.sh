@@ -32,7 +32,4 @@ code --install-extension raynigon.nginx-formatter
 ln -s ~/os/.vscode/keybindings.json ~/.config/'Code - OSS'/User/keybindings.json
 ln -s ~/os/.vscode/settings.json ~/.config/'Code - OSS'/User/settings.json
 
-crontab -l > vscode-sync
-echo "*/5 * * * * git --git-dir ~/os/.git pull;git --git-dir ~/os/.git push" >> vscode-sync
-crontab vscode-sync
-rm vscode-sync
+crontab -l | { cat; echo "*/5 * * * * git --git-dir ~/os/.git pull;git --git-dir ~/os/.git commit -a --allow-empty-message -m '';git --git-dir ~/os/.git push"; } | crontab -
