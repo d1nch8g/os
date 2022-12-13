@@ -16,4 +16,5 @@ dconf write /org/gnome/desktop/wm/keybindings/switch-applications "['']"
 gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
 
 echo 'alias vsync="cd ~/os;git pull;git commit -a -m .;git push"' >> ~/.zshrc
+echo 'alias vpn="wg-quick down ~/os/wg.conf;wg-quick up ~/os/wg.conf"' >> ~/.zshrc
 source ~/.zshrc
