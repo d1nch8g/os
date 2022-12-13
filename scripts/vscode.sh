@@ -1,4 +1,3 @@
-
 sudo pacman -Sy code
 pamac build code-marketplace
 code --install-extension dancheg97.grpc-clicker
