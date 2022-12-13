@@ -1,7 +1,5 @@
-git clone https://aur.archlinux.org/visual-studio-code-bin.git
-cd visual-studio-code-bin
-makepkg -si
-
+sudo pacman -Sy code
+pamac build code-marketplace
 code --install-extension dancheg97.grpc-clicker
 code --install-extension dancheg97.flow-case
 code --install-extension ms-python.python
@@ -30,5 +28,5 @@ code --install-extension svelte.svelte-vscode
 code --install-extension Orta.vscode-jest
 code --install-extension raynigon.nginx-formatter
 
-ln -s ~/os/.vscode/keybindings.json ~/.config/Code/User/keybindings.json
-ln -s ~/os/.vscode/settings.json ~/.config/Code/User/settings.json
+ln -s ~/os/.vscode/keybindings.json ~/.config/'Code - OSS'/User/keybindings.json
+ln -s ~/os/.vscode/settings.json ~/.config/'Code - OSS'/User/settings.json
