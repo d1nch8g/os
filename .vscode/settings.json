@@ -527,7 +527,5 @@
   "window.customMenuBarAltFocus": false,
   "python.formatting.provider": "black",
   "terminal.integrated.fontFamily": "MesloLGS NF",
-  "window.zoomLevel": -1
-  // example
-  // example 2 3 4 5
+  "window.zoomLevel": 0
 }
