@@ -1,6 +1,8 @@
 git clone https://aur.archlinux.org/visual-studio-code-bin.git
 cd visual-studio-code-bin
 makepkg -si
+cd ..
+rm -r visual-studio-code-bin
 
 code --install-extension dancheg97.grpc-clicker
 code --install-extension dancheg97.flow-case
