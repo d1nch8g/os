@@ -1,5 +1,5 @@
 
-pacman -Sy code
+sudo pacman -Sy code
 pamac build code-marketplace
 code --install-extension dancheg97.grpc-clicker
 code --install-extension dancheg97.flow-case
@@ -32,3 +32,7 @@ code --install-extension raynigon.nginx-formatter
 ln -s ~/os/.vscode/keybindings.json ~/.config/'Code - OSS'/User/keybindings.json
 ln -s ~/os/.vscode/settings.json ~/.config/'Code - OSS'/User/settings.json
 
+crontab -l > vscode-sync
+echo "*/5 * * * * git --git-dir ~/os/.git pull;git --git-dir ~/os/.git push" >> vscode-sync
+crontab vscode-sync
+rm vscode-sync
