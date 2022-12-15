@@ -13,6 +13,7 @@
     "eventjournal": "batch",
     "dark": "batch",
     "light": "jinja",
+    "os": "verdaccio",
     "treeviews": "stack",
     "history": "connection",
     "storage": "wakatime",
