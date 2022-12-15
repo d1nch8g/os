@@ -2,6 +2,9 @@ git config --global user.email "dangdancheg@gmail.com"
 git config --global user.name "dancheg97"
 git config --global credential.helper store
 git config --global http.sslVerify false
+git config --global url."ssh://git@gitlab.c2g.pw/".insteadOf "https://gitlab.c2g.pw/"
+git config --global url."ssh://git@gitlab.c2g.pw/".name "Danila Fominykh"
+git config --global url."ssh://git@gitlab.c2g.pw/".email "dfominykh@c2g.local"
 
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['']"
