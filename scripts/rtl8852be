@@ -1,0 +1,8 @@
+git clone https://github.com/Hrex39/rtl8852be
+cd rtl8852be
+sudo pacman -Sy build-essential linux-headers bc
+make -j8
+sudo make install
+sudo modprobe8852be
+cd ..
+rm -r rtl8852be
