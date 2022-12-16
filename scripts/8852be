@@ -1,10 +1,11 @@
 sudo pacman -Sy build-essential
 sudo pacman -Sy linux-headers
 sudo pacman -Sy bc
+
 git clone https://github.com/Hrex39/rtl8852be
 cd rtl8852be
 make -j8
 sudo make install
-sudo modprobe8852be
+sudo modprobe 8852be
 cd ..
 sudo rm -r rtl8852be
