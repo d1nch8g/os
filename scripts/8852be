@@ -1,6 +1,6 @@
 sudo pacman -Sy build-essential
-sudo pacman -Sy linux-headers
 sudo pacman -Sy bc
+sudo pacman -Sy linux-headers
 
 git clone https://github.com/Hrex39/rtl8852be
 cd rtl8852be
