@@ -1,0 +1,21 @@
+sudo pacman -S snapd
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install android-studio --classic
+sudo snap install androidsdk
+
+sudo pacman -S jre8-openjdk
+
+echo "export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'" >> ~/.zshrc
+echo "export PATH=\$JAVA_HOME/bin:\$PATH"  >> ~/.zshrc
+source ~/.zshrc
+
+sudo groupadd flutterusers
+sudo gpasswd -a $USER flutterusers
+sudo chown -R :flutterusers /opt/flutter
+sudo chmod -R g+w /opt/flutter/
+
+
+sudo snap install flutter --classic
+
+flutter config --android-sdk /path/to/android/sdk
