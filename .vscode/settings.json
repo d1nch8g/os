@@ -495,7 +495,8 @@
     "gitlens.codeLens.scopes": ["document"]
   },
   "files.associations": {
-    "*.tmpl": "html"
+    "*.tmpl": "html",
+    "flutter1": "shellscript"
   },
   "sqltools.format": {
     "language": "sql",
@@ -527,6 +528,5 @@
   "window.titleBarStyle": "custom",
   "window.customMenuBarAltFocus": false,
   "python.formatting.provider": "black",
-  "terminal.integrated.fontFamily": "MesloLGS NF",
-  "window.zoomLevel": 0
+  "terminal.integrated.fontFamily": "MesloLGS NF"
 }

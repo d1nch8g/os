@@ -1,4 +1,5 @@
 sdkmanager --install "system-images;android-29;default;x86"
+sdkmanager "system-images;android-27;google_apis_playstore;x86"
 avdmanager create avd -n dflt -k "system-images;android-29;default;x86"
 
 echo "export ANDROID_SDK_ROOT='/opt/android-sdk'" >> ~/.zshrc

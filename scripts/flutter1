@@ -9,7 +9,7 @@ yay -S flutter
 
 sudo pacman -S jre8-openjdk
 
-echo "export JAVA_HOME='/usr/lib/jvm/java-19-openjdk'" >> ~/.zshrc
+echo "export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'" >> ~/.zshrc
 echo "export PATH=\$JAVA_HOME/bin:\$PATH"  >> ~/.zshrc
 source ~/.zshrc
 
@@ -29,4 +29,4 @@ sudo gpasswd -a $USER android-sdk
 sudo setfacl -R -m g:android-sdk:rwx /opt/android-sdk
 sudo setfacl -d -m g:android-sdk:rwX /opt/android-sdk
 
-reboot
+exit
