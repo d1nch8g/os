@@ -13,7 +13,8 @@ wget https://github.com/microsoft/AirSim/releases/download/v1.8.1/Blocks.zip
 unzip Blocks.zip
 rm Blocks.zip
 cd Blocks
-echo 'alias airsim="~/LinuxBlocks1.8.1/LinuxNoEditor/Blocks.sh"' >> ~/.zshrc
+sudo chown -R dancheg97:dancheg97 LinuxBlocks1.8.1
+echo 'alias airsim="sh ~/LinuxBlocks1.8.1/LinuxNoEditor/Blocks.sh"' >> ~/.zshrc
 source ~/.zshrc
 
 

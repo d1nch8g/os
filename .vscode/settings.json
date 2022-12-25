@@ -529,5 +529,6 @@
   "window.customMenuBarAltFocus": false,
   "python.formatting.provider": "black",
   "terminal.integrated.fontFamily": "MesloLGS NF",
-  "cmake.configureOnOpen": false
+  "cmake.configureOnOpen": false,
+  "extensions.ignoreRecommendations": true
 }
