@@ -92,6 +92,7 @@
     "testpg": "test",
     "modelrepo_bff": "test",
     "test_grpc_call_page": "mjml",
+    "airsim": "dump",
     "sqlc": "mjml",
     "redis": "class",
     "mixedtree": "vuepress",

@@ -8,21 +8,20 @@ sudo rm -r yay
 yay -Sy unreal-engine
 
 
-cd ~
-wget https://github.com/microsoft/AirSim/releases/download/v1.8.1/Blocks.zip
-unzip Blocks.zip
-rm Blocks.zip
-cd Blocks
-sudo chown -R dancheg97:dancheg97 LinuxBlocks1.8.1
-mv LinuxBlocks1.8.1/LinuxNoEditor airsim
-echo 'alias airsim="sh ~/airsim/Blocks.sh"' >> ~/.zshrc
-source ~/.zshrc
+# cd ~
+# wget https://github.com/microsoft/AirSim/releases/download/v1.8.1/Blocks.zip
+# unzip Blocks.zip
+# rm Blocks.zip
+# cd Blocks
+# sudo chown -R dancheg97:dancheg97 LinuxBlocks1.8.1
+# mv LinuxBlocks1.8.1/LinuxNoEditor airsim
+# echo 'alias airsim="sh ~/airsim/Blocks.sh"' >> ~/.zshrc
+# source ~/.zshrc
 
-
-# conda create --name airsim
-# conda activate airsim
-# conda install -c conda-forge boost
-# conda install -c conda-forge clang=8.0.1
-# conda install -c conda-forge libcxx=8.0.1
-# ./setup.sh
-# ./build.sh
+git clone https://github.com/microsoft/AirSim
+cd AirSim
+conda create --name airsim
+conda activate airsim
+conda install -c conda-forge boost clang=8.0.1 libcxx=8.0.1
+sudo ln -sf ~/anaconda3/envs/airsim/bin/clang-8 ~/anaconda3/envs/airsim/bin/clang++-8
+./build.sh
