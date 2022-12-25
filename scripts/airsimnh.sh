@@ -1,18 +1,6 @@
-sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ..
-sudo rm -r yay
-
-yay -Sy unreal-engine
-
-
 wget https://github.com/microsoft/AirSim/releases/download/v1.8.1/AirSimNH.zip
 unzip AirSimNH.zip
 rm AirSimNH.zip
 echo "alias airsim='sh ~/AirSimNH/LinuxNoEditor/AirSimNH.sh'" >> ~/.zshrc
 source ~/.zshrc
 
-pip install msgpack-rpc-python
-pip install airsim

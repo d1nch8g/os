@@ -531,5 +531,6 @@
   "python.formatting.provider": "black",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "cmake.configureOnOpen": false,
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "python.defaultInterpreterPath": "~/anaconda3/bin/python"
 }
