@@ -14,7 +14,8 @@ unzip Blocks.zip
 rm Blocks.zip
 cd Blocks
 sudo chown -R dancheg97:dancheg97 LinuxBlocks1.8.1
-echo 'alias airsim="sh ~/LinuxBlocks1.8.1/LinuxNoEditor/Blocks.sh"' >> ~/.zshrc
+mv LinuxBlocks1.8.1/LinuxNoEditor airsim
+echo 'alias airsim="sh ~/airsim/Blocks.sh"' >> ~/.zshrc
 source ~/.zshrc
 
 
