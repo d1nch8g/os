@@ -1,0 +1,26 @@
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+sudo rm -r yay
+
+yay -Sy unreal-engine
+
+
+cd ~
+wget https://github.com/microsoft/AirSim/releases/download/v1.8.1/Blocks.zip
+unzip Blocks.zip
+rm Blocks.zip
+cd Blocks
+echo 'alias airsim="~/LinuxBlocks1.8.1/LinuxNoEditor/Blocks.sh"' >> ~/.zshrc
+source ~/.zshrc
+
+
+# conda create --name airsim
+# conda activate airsim
+# conda install -c conda-forge boost
+# conda install -c conda-forge clang=8.0.1
+# conda install -c conda-forge libcxx=8.0.1
+# ./setup.sh
+# ./build.sh
