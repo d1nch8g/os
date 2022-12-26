@@ -28,3 +28,8 @@ sh docker
 sh conda
 sh tensorflow
 ```
+
+sudo rm -r ~/anaconda3
+sh ~/os/scripts/conda.sh
+sudo rm -r ~/AirSim
+sh ~/os/scripts/airsim.sh
