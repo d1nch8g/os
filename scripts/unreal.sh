@@ -1,8 +1,5 @@
-sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ..
-sudo rm -r yay
-
-yay -Sy unreal-engine
+git clone -b 4.27 git@github.com:EpicGames/UnrealEngine.git
+cd UnrealEngine
+./Setup.sh
+./GenerateProjectFiles.sh
+make
