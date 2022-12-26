@@ -1,3 +1,4 @@
+cd ~
 wget https://github.com/microsoft/AirSim/releases/download/v1.8.1/AirSimNH.zip
 unzip AirSimNH.zip
 rm AirSimNH.zip

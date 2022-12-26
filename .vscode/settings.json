@@ -115,6 +115,7 @@
     "drone": "review"
   },
   "material-icon-theme.files.associations": {
+    "buf.yaml": "disc",
     "*.proto": "gcp",
     "**.mod": "brainfuck",
     "**.sum": "brainfuck",
@@ -532,5 +533,6 @@
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "cmake.configureOnOpen": false,
   "extensions.ignoreRecommendations": true,
-  "python.defaultInterpreterPath": "~/anaconda3/bin/python"
+  "python.defaultInterpreterPath": "~/anaconda3/bin/python",
+  "window.zoomLevel": 1
 }
