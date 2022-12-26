@@ -493,8 +493,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
-    "editor.suggest.insertMode": "replace",
-    "gitlens.codeLens.scopes": ["document"]
+    "editor.suggest.insertMode": "replace"
   },
   "files.associations": {
     "*.tmpl": "html",
@@ -531,8 +530,5 @@
   "window.customMenuBarAltFocus": false,
   "python.formatting.provider": "black",
   "terminal.integrated.fontFamily": "MesloLGS NF",
-  "cmake.configureOnOpen": false,
-  "extensions.ignoreRecommendations": true,
-  "python.defaultInterpreterPath": "~/anaconda3/bin/python",
-  "window.zoomLevel": 1
+  "cmake.configureOnOpen": false
 }
