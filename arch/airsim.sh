@@ -7,4 +7,4 @@ sed -i '97 s/^/#/' setup.sh
 ./setup.sh
 # export CC="gcc"
 # export CXX="g++"
-./build.sh --gcc
+# ./build.sh --gcc
