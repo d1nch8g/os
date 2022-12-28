@@ -1,3 +1,4 @@
+sudo pacman -Sy make
 sudo pacman -Sy build-essential
 sudo pacman -Sy bc
 sudo pacman -Sy linux-headers
