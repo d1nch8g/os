@@ -22,3 +22,5 @@ echo 'alias vsync="cd ~/os;git pull;git commit -a -m .;git push"' >> ~/.zshrc
 echo 'alias vpn="wg-quick down ~/os/tmp/wg.conf;wg-quick up ~/os/tmp/wg.conf"' >> ~/.zshrc
 echo 'alias vpn2="wg-quick down ~/os/tmp/wg2.conf;wg-quick up ~/os/tmp/wg2.conf"' >> ~/.zshrc
 source ~/.zshrc
+
+sudo pacman -Syu

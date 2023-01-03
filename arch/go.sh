@@ -1,3 +1,8 @@
+systemctl enable --now snapd.socket
+systemctl start docker.service
+systemctl enable docker.service
+pamac install docker-compose
+sudo usermod -aG docker $USER
 
 go install mvdan.cc/gofumpt@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1

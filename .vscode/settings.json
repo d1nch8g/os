@@ -27,6 +27,7 @@
     "clusterings": "cobol",
     "modes": "queue",
     "svc": "queue",
+    "wrapper": "queue",
     "datamover": "queue",
     "thresholds": "batch",
     "pid-metadata": "batch",
@@ -96,6 +97,7 @@
     "sqlc": "mjml",
     "redis": "class",
     "mixedtree": "vuepress",
+    "notebooks": "redux-selector",
     "stationsapi": "vuepress",
     "modelrepo": "ci",
     "uimodel": "expo",
@@ -116,6 +118,7 @@
   },
   "material-icon-theme.files.associations": {
     "buf.yaml": "disc",
+    "**.ipynb": "redux-selector",
     "*.proto": "gcp",
     "**.mod": "brainfuck",
     "**.sum": "brainfuck",
@@ -530,6 +533,5 @@
   "window.customMenuBarAltFocus": false,
   "python.formatting.provider": "black",
   "terminal.integrated.fontFamily": "MesloLGS NF",
-  "cmake.configureOnOpen": false,
-  "window.zoomLevel": 1
+  "cmake.configureOnOpen": false
 }
