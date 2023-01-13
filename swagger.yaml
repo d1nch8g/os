@@ -1,0 +1,4819 @@
+basePath: /frontapi/v1
+definitions:
+  exprules.Argument:
+    properties:
+      dataType:
+        items:
+          type: integer
+        type: array
+      name:
+        type: string
+    type: object
+  exprules.Details:
+    properties:
+      description:
+        type: string
+      example:
+        type: string
+    type: object
+  exprules.ExpertRule:
+    properties:
+      blocks:
+        items:
+          type: integer
+        type: array
+      id:
+        type: integer
+      mappingBlock:
+        items:
+          type: integer
+        type: array
+      settings:
+        $ref: "#/definitions/exprules.Settings"
+    type: object
+  exprules.Filter:
+    properties:
+      markId:
+        type: integer
+      typeId:
+        type: integer
+    type: object
+  exprules.Function:
+    properties:
+      arguments:
+        items:
+          $ref: "#/definitions/exprules.Argument"
+        type: array
+      details:
+        $ref: "#/definitions/exprules.Details"
+      id:
+        type: integer
+      name:
+        type: string
+      returnType:
+        items:
+          type: integer
+        type: array
+    type: object
+  exprules.Mark:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      unitTreeRootId:
+        type: integer
+    type: object
+  exprules.Settings:
+    properties:
+      description:
+        type: string
+      enabled:
+        type: boolean
+      frequency:
+        type: string
+      mark:
+        $ref: "#/definitions/exprules.Mark"
+      name:
+        type: string
+      type:
+        $ref: "#/definitions/exprules.Type"
+    type: object
+  exprules.Type:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  handlers.Author:
+    properties:
+      firstName:
+        type: string
+      id:
+        type: integer
+      lastName:
+        type: string
+      middleName:
+        type: string
+    type: object
+  handlers.Comment:
+    properties:
+      id:
+        type: integer
+      message:
+        type: string
+      timestamp:
+        type: integer
+      user:
+        $ref: "#/definitions/handlers.Author"
+    type: object
+  handlers.Event:
+    properties:
+      CollapseKey:
+        type: string
+      attachedToEvents:
+        items:
+          $ref: "#/definitions/handlers.Event"
+        type: array
+      comments:
+        items:
+          $ref: "#/definitions/handlers.Comment"
+        type: array
+      description:
+        type: string
+      id:
+        type: integer
+      linkedEvents:
+        items:
+          $ref: "#/definitions/handlers.Event"
+        type: array
+      payload:
+        items:
+          type: integer
+        type: array
+      severity:
+        type: string
+      source:
+        type: string
+      structure:
+        $ref: "#/definitions/handlers.Structure"
+      timestamp:
+        type: integer
+      title:
+        type: string
+      uuid:
+        type: string
+    type: object
+  handlers.EventStateTransitionReq:
+    properties:
+      state_comment:
+        type: string
+    type: object
+  handlers.FilterRequest:
+    properties:
+      eventSource:
+        enum:
+          - all
+          - threshold_reached
+          - delay
+          - restore
+          - model_params
+          - created_by_user
+          - expert_rule_alert
+          - expert_rule_logical_tag_recommendation
+          - expert_rule_simple_recommendation
+          - sbm_alert_t2_exceeded_ucl
+          - sbm_alert_t2_smoothed_exceeded_ucl
+          - sbm_alert_discrepancy_exceeded_ucl
+        type: string
+      ids:
+        items:
+          type: integer
+        type: array
+      pageNumber:
+        type: integer
+      pageSize:
+        type: integer
+      period:
+        $ref: "#/definitions/handlers.FitlerPeriod"
+      severity:
+        enum:
+          - all
+          - neutral
+          - normal
+          - high
+          - urgent
+        type: string
+      state:
+        $ref: "#/definitions/handlers.FilterRequestState"
+      structure:
+        items:
+          $ref: "#/definitions/handlers.Node"
+        type: array
+      uuids:
+        items:
+          type: string
+        type: array
+    type: object
+  handlers.FilterRequestState:
+    properties:
+      status:
+        items:
+          type: string
+        type: array
+    type: object
+  handlers.FilterResponse:
+    properties:
+      events:
+        items:
+          $ref: "#/definitions/handlers.Event"
+        type: array
+      totalItems:
+        type: integer
+    type: object
+  handlers.FitlerPeriod:
+    properties:
+      from:
+        description: Datetime string of format ISO8601
+        type: string
+      to:
+        description: Datetime string of format ISO8601
+        type: string
+    required:
+      - from
+      - to
+    type: object
+  handlers.LastRecommendationFilter:
+    properties:
+      structure:
+        items:
+          $ref: "#/definitions/handlers.Node"
+        type: array
+    type: object
+  handlers.NewCommentRequest:
+    properties:
+      body:
+        type: string
+    type: object
+  handlers.NewEventRequest:
+    properties:
+      description:
+        type: string
+      linkedEventIds:
+        items:
+          type: integer
+        type: array
+      orgTreeNodeId:
+        type: integer
+      payload:
+        items:
+          type: integer
+        type: array
+      severity:
+        enum:
+          - neutral
+          - normal
+          - high
+          - urgent
+        type: string
+      title:
+        type: string
+      unitTreeNodeId:
+        type: integer
+    required:
+      - severity
+    type: object
+  handlers.Node:
+    properties:
+      orgTreeNodeId:
+        type: integer
+      unitTreeNodeId:
+        type: integer
+    type: object
+  handlers.OrgTreeNode:
+    properties:
+      children:
+        items:
+          type: object
+        type: array
+      id:
+        type: integer
+      name:
+        type: string
+      orgTreeRootId:
+        type: integer
+      treeType:
+        type: string
+      unitTreeRootId:
+        type: integer
+    type: object
+  handlers.StateStats:
+    properties:
+      countsByStates:
+        additionalProperties:
+          type: integer
+        type: object
+    type: object
+  handlers.Structure:
+    properties:
+      orgTreeNode:
+        $ref: "#/definitions/handlers.OrgTreeNode"
+      unitTreeNode:
+        $ref: "#/definitions/handlers.UnitTreeNode"
+    type: object
+  handlers.UnitTreeNode:
+    properties:
+      children:
+        items:
+          type: object
+        type: array
+      id:
+        type: integer
+      name:
+        type: string
+      treeType:
+        type: string
+      unitTreeRootId:
+        type: integer
+    type: object
+  its_tracker.AllowedStatus:
+    properties:
+      displayName:
+        type: string
+      id:
+        type: integer
+      severity:
+        enum:
+          - success
+          - error
+          - normal
+        type: string
+      transitionName:
+        type: string
+    type: object
+  its_tracker.Claim:
+    properties:
+      allowedActions:
+        $ref: "#/definitions/its_tracker.ClaimActions"
+      allowedStatuses:
+        items:
+          $ref: "#/definitions/its_tracker.AllowedStatus"
+        type: array
+      calculatedAt:
+        type: integer
+      claimCalcReason:
+        $ref: "#/definitions/its_tracker.ClaimCalcReason"
+      createdAt:
+        type: integer
+      filesPool:
+        items:
+          $ref: "#/definitions/its_tracker.FileInfo"
+        type: array
+      id:
+        type: integer
+      its:
+        type: number
+        x-nullable: true
+      oeUnitId:
+        type: integer
+      parameters:
+        items:
+          $ref: "#/definitions/its_tracker.Parameter"
+        type: array
+      status:
+        $ref: "#/definitions/its_tracker.Status"
+      statusHistory:
+        items:
+          $ref: "#/definitions/its_tracker.Status"
+        type: array
+      updatedAt:
+        type: integer
+      user:
+        $ref: "#/definitions/its_tracker.UserProfile"
+    type: object
+  its_tracker.ClaimActions:
+    properties:
+      canCalculate:
+        type: boolean
+      canChangeStatus:
+        type: boolean
+      canCreate:
+        type: boolean
+      canDelete:
+        type: boolean
+      canRemoveFileFromParameter:
+        type: boolean
+      canRemoveFileFromPool:
+        type: boolean
+      canUpdate:
+        type: boolean
+      canUploadFileToPool:
+        type: boolean
+      canUseFileFromPool:
+        type: boolean
+    type: object
+  its_tracker.ClaimCalcReason:
+    properties:
+      displayName:
+        type: string
+      id:
+        type: integer
+    type: object
+  its_tracker.ClaimSummaries:
+    properties:
+      claimSummaries:
+        items:
+          $ref: "#/definitions/its_tracker.ClaimSummary"
+        type: array
+      totalCount:
+        type: integer
+    type: object
+  its_tracker.ClaimSummary:
+    properties:
+      allowedStatuses:
+        items:
+          $ref: "#/definitions/its_tracker.AllowedStatus"
+        type: array
+      calculatedAt:
+        type: integer
+      claimCalcReason:
+        $ref: "#/definitions/its_tracker.ClaimCalcReason"
+      createdAt:
+        type: integer
+      id:
+        type: integer
+      its:
+        type: number
+        x-nullable: true
+      oeUnitId:
+        type: integer
+      orgElemName:
+        type: string
+      status:
+        $ref: "#/definitions/its_tracker.Status"
+      unitName:
+        type: string
+      updatedAt:
+        type: integer
+      user:
+        $ref: "#/definitions/its_tracker.UserProfile"
+    type: object
+  its_tracker.CreateClaim:
+    properties:
+      calculatedAt:
+        type: integer
+      claimCalcReason:
+        $ref: "#/definitions/its_tracker.ClaimCalcReason"
+    type: object
+  its_tracker.FileInfo:
+    properties:
+      createdAt:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      size:
+        type: integer
+      type:
+        type: string
+    type: object
+  its_tracker.FilterClaimSummaries:
+    properties:
+      pagination:
+        $ref: "#/definitions/its_tracker.LimitOffsetPagination"
+      startingOeUnitId:
+        type: integer
+      statusIds:
+        items:
+          type: integer
+        type: array
+      unitIds:
+        items:
+          type: integer
+        type: array
+    type: object
+  its_tracker.LimitOffsetPagination:
+    properties:
+      pageNumber:
+        type: integer
+      pageSize:
+        type: integer
+    type: object
+  its_tracker.NamedValue:
+    properties:
+      displayName:
+        type: string
+      value:
+        type: number
+    type: object
+  its_tracker.Parameter:
+    properties:
+      comment:
+        type: string
+      confirmationFile:
+        $ref: "#/definitions/its_tracker.FileInfo"
+      currentValue:
+        type: number
+      currentValueTs:
+        type: integer
+      id:
+        type: integer
+      mt:
+        type: integer
+      namedValues:
+        items:
+          $ref: "#/definitions/its_tracker.NamedValue"
+        type: array
+      oeUnitId:
+        type: integer
+      parameterChangeReason:
+        $ref: "#/definitions/its_tracker.ParameterChangeReason"
+      pid:
+        type: integer
+      proposedValue:
+        type: number
+      proposedValueTs:
+        type: integer
+      tagId:
+        type: string
+    type: object
+  its_tracker.ParameterChangeReason:
+    properties:
+      displayName:
+        type: string
+      id:
+        type: integer
+    type: object
+  its_tracker.Status:
+    properties:
+      ITS:
+        type: number
+        x-nullable: true
+      calculatedAt:
+        type: integer
+      comment:
+        type: string
+      createdAt:
+        type: integer
+      displayName:
+        type: string
+      id:
+        type: integer
+      severity:
+        enum:
+          - success
+          - error
+          - normal
+        type: string
+      transitionName:
+        type: string
+      user:
+        $ref: "#/definitions/its_tracker.UserProfile"
+    type: object
+  its_tracker.UserProfile:
+    properties:
+      clientId:
+        type: integer
+      department:
+        type: string
+      lastName:
+        type: string
+      name:
+        type: string
+      phoneNumber:
+        type: string
+      shortName:
+        type: string
+    type: object
+  manualcollector.Journal:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      parameters:
+        items:
+          $ref: "#/definitions/manualcollector.Parameter"
+        type: array
+    type: object
+  manualcollector.JournalIDResp:
+    properties:
+      journalId:
+        type: integer
+    type: object
+  manualcollector.JournalShort:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  manualcollector.LastTimeValue:
+    properties:
+      lastTime:
+        type: integer
+      lastValue:
+        type: number
+    type: object
+  manualcollector.NewJournal:
+    properties:
+      name:
+        type: string
+      tags:
+        items:
+          type: string
+        type: array
+    type: object
+  manualcollector.NewName:
+    properties:
+      name:
+        type: string
+    type: object
+  manualcollector.Parameter:
+    properties:
+      isMapped:
+        type: boolean
+      lastTime:
+        type: integer
+      lastValue:
+        type: number
+      oeUnitId:
+        type: integer
+      path:
+        description: TODO remove or fill
+        items:
+          type: string
+        type: array
+      physicalQuantity:
+        type: string
+      physicalQuantityUnit:
+        type: string
+      uuid:
+        type: string
+    type: object
+  manualcollector.SetValue:
+    properties:
+      timestamp:
+        type: integer
+      uuid:
+        type: string
+      value:
+        type: number
+    type: object
+  manualcollector.SetValuesRequest:
+    properties:
+      newValues:
+        items:
+          $ref: "#/definitions/manualcollector.SetValue"
+        type: array
+      oeUnitId:
+        type: integer
+    type: object
+  manualcollector.SetValuesResponse:
+    additionalProperties:
+      $ref: "#/definitions/manualcollector.LastTimeValue"
+    type: object
+  manualcollector.Tags:
+    properties:
+      tags:
+        items:
+          type: string
+        type: array
+    type: object
+  mixed.ConstTag:
+    properties:
+      title:
+        type: string
+      uuid:
+        type: string
+      value:
+        type: number
+    type: object
+  mixed.OeLtag:
+    properties:
+      ltagName:
+        type: string
+      nodeName:
+        type: string
+      oeUnitId:
+        type: integer
+      physicalQuantity:
+        type: string
+      physicalQuantityUnit:
+        type: string
+      pidName:
+        type: string
+      pidTechNameAuto:
+        type: string
+      tagUuid:
+        type: string
+      thresholds:
+        $ref: "#/definitions/mixed.Thresholds"
+    type: object
+  mixed.OeLtagId:
+    properties:
+      oeUnitId:
+        type: integer
+      tagUuid:
+        type: string
+    type: object
+  mixed.OeLtagIdList:
+    properties:
+      data:
+        items:
+          $ref: "#/definitions/mixed.OeLtagId"
+        type: array
+    type: object
+  mixed.SummaryItem:
+    properties:
+      exceedLtags:
+        items:
+          $ref: "#/definitions/mixed.SummaryTag"
+        type: array
+      lastT2:
+        type: number
+      lastT2Time:
+        type: integer
+      modelId:
+        type: integer
+      modelName:
+        type: string
+      totalParamsCnt:
+        type: integer
+      unitId:
+        type: integer
+      unitName:
+        type: string
+      unitNodeId:
+        type: integer
+      unitNodeName:
+        type: string
+    type: object
+  mixed.SummaryTag:
+    properties:
+      physicalQuantity:
+        type: string
+      physicalQuantityUnit:
+        type: string
+      stats:
+        $ref: "#/definitions/mixed.TagStat"
+      title:
+        type: string
+      unitName:
+        type: string
+      unitNodeId:
+        type: integer
+      uuid:
+        type: string
+    type: object
+  mixed.TagStat:
+    properties:
+      historicValue:
+        type: number
+      modelValue:
+        type: number
+    type: object
+  mixed.Threshold:
+    properties:
+      severity:
+        type: string
+      value:
+        type: number
+    type: object
+  mixed.Thresholds:
+    properties:
+      lower:
+        items:
+          $ref: "#/definitions/mixed.Threshold"
+        type: array
+      upper:
+        items:
+          $ref: "#/definitions/mixed.Threshold"
+        type: array
+    type: object
+  modeling.Condition:
+    properties:
+      operator:
+        type: string
+      tag:
+        type: string
+      values:
+        items:
+          type: number
+        type: array
+    type: object
+  modeling.CorrelationMatrixOut:
+    properties:
+      matrix:
+        items:
+          items:
+            type: number
+          type: array
+        type: array
+      params:
+        items:
+          $ref: "#/definitions/modeling.Param"
+        type: array
+    type: object
+  modeling.CreateModelsFromClustersIn:
+    properties:
+      clusterIDs:
+        items:
+          type: integer
+        type: array
+    type: object
+  modeling.CreateSystemModelIn:
+    properties:
+      endTime:
+        type: integer
+      oeUnitId:
+        type: integer
+      startTime:
+        type: integer
+      stepSeconds:
+        type: integer
+    type: object
+  modeling.CreateUiModelReq:
+    properties:
+      name:
+        type: string
+      nodeId:
+        type: integer
+      oeUnitId:
+        type: integer
+    type: object
+  modeling.CreateUiModelResp:
+    properties:
+      uiModelId:
+        type: integer
+    type: object
+  modeling.CreateUserModeReq:
+    properties:
+      userModel:
+        $ref: "#/definitions/modeling.UserModel"
+    type: object
+  modeling.DatasetDistributionOut:
+    properties:
+      excluded:
+        items:
+          type: number
+        type: array
+      included:
+        items:
+          type: number
+        type: array
+      values:
+        items:
+          type: number
+        type: array
+    type: object
+  modeling.DistributionIn:
+    properties:
+      parameterXID:
+        type: integer
+      points:
+        type: integer
+    type: object
+  modeling.DistributionOut:
+    properties:
+      distribution:
+        items:
+          items:
+            type: number
+          type: array
+        type: array
+    type: object
+  modeling.GetUserModelResp:
+    properties:
+      userModel:
+        $ref: "#/definitions/modeling.UserModel"
+    type: object
+  modeling.HistoryIn:
+    properties:
+      parameterYID:
+        type: integer
+      points:
+        type: integer
+    type: object
+  modeling.HistoryOut:
+    properties:
+      cluster:
+        items:
+          type: integer
+        type: array
+      t:
+        items:
+          type: integer
+        type: array
+      x:
+        items:
+          type: number
+        type: array
+    type: object
+  modeling.ListUiModelsReq:
+    properties:
+      nodeId:
+        type: integer
+      oeUnitId:
+        type: integer
+    type: object
+  modeling.Param:
+    properties:
+      id:
+        type: integer
+      tagId:
+        type: string
+    type: object
+  modeling.PointsChangeStatusIn:
+    properties:
+      statuses:
+        items:
+          type: boolean
+        type: array
+      timeMomentIDs:
+        items:
+          type: integer
+        type: array
+    type: object
+  modeling.ReplayUiModelIn:
+    properties:
+      endTime:
+        type: integer
+      startTime:
+        type: integer
+      stepSeconds:
+        type: integer
+    type: object
+  modeling.ScatterIn:
+    properties:
+      parameterXID:
+        type: integer
+      parameterYID:
+        type: integer
+      pointsByX:
+        type: integer
+      pointsByY:
+        type: integer
+    type: object
+  modeling.ScatterOut:
+    additionalProperties:
+      items:
+        items:
+          type: number
+        type: array
+      type: array
+    type: object
+  modeling.UiModel:
+    properties:
+      calculationGroupId:
+        type: integer
+      canBeMadeActive:
+        type: boolean
+      createdAt:
+        type: integer
+      isActive:
+        type: boolean
+      name:
+        type: string
+      uiModelId:
+        type: integer
+    type: object
+  modeling.UiModelId:
+    properties:
+      uImodelId:
+        type: integer
+    type: object
+  modeling.UserModel:
+    properties:
+      calcGroupStepSeconds:
+        type: integer
+      conditions:
+        items:
+          items:
+            $ref: "#/definitions/modeling.Condition"
+          type: array
+        type: array
+      dataSetStepSeconds:
+        type: integer
+      endDate:
+        type: integer
+      startDate:
+        type: integer
+      tags:
+        items:
+          type: string
+        type: array
+      uiModelId:
+        type: integer
+    type: object
+  modelrepo.CalcGroup:
+    properties:
+      calculationPeriod:
+        type: integer
+      id:
+        type: integer
+      modes:
+        items:
+          $ref: "#/definitions/modelrepo.Mode"
+        type: array
+      uImodelId:
+        type: integer
+    type: object
+  modelrepo.Cluster:
+    properties:
+      id:
+        type: integer
+      indicator:
+        type: integer
+      name:
+        type: string
+      points:
+        type: integer
+    type: object
+  modelrepo.ControlLimits:
+    properties:
+      uclCollective:
+        type: number
+      uclIndividual:
+        type: number
+    type: object
+  modelrepo.LogicalTag:
+    properties:
+      oeUnitId:
+        type: integer
+      uuid:
+        type: string
+    type: object
+  modelrepo.Mode:
+    properties:
+      createdAt:
+        type: integer
+      modeId:
+        type: integer
+      modeName:
+        type: string
+      models:
+        items:
+          $ref: "#/definitions/modelrepo.Model"
+        type: array
+    type: object
+  modelrepo.Model:
+    properties:
+      controlLimits:
+        $ref: "#/definitions/modelrepo.ControlLimits"
+      createdAt:
+        type: integer
+      modelId:
+        type: integer
+      modelName:
+        type: string
+    type: object
+  modelrepo.Param:
+    properties:
+      id:
+        type: integer
+      tagId:
+        type: string
+    type: object
+  modelrepo.RenameReq:
+    properties:
+      name:
+        type: string
+    type: object
+  modelrepo.SystemModel:
+    properties:
+      calculationGroupId:
+        type: integer
+      oeUnitId:
+        type: integer
+      uImodelId:
+        type: integer
+    type: object
+  modelrepo.TimeRange:
+    properties:
+      endTime:
+        type: integer
+      startTime:
+        type: integer
+      stepSeconds:
+        type: integer
+    type: object
+  modelrepo.UiModelEvent:
+    properties:
+      message:
+        type: string
+      statusClusters:
+        type: string
+      statusDataset:
+        type: string
+      statusModels:
+        type: string
+      time:
+        type: integer
+    type: object
+  modelrepo.UiModelState:
+    properties:
+      clusteringReady:
+        type: boolean
+      datasetReady:
+        type: boolean
+      modelsReady:
+        type: boolean
+    type: object
+  pb.ObjectBase:
+    properties:
+      IsTemplate:
+        type: boolean
+      id:
+        type: string
+      unit_node_id:
+        type: integer
+    type: object
+  pb.ObjectResponse:
+    properties:
+      object:
+        $ref: "#/definitions/pb.ObjectBase"
+    type: object
+  pb.OrgElem:
+    properties:
+      child_node_id:
+        description: |-
+          Id of `child_node`, exists only for `org_unit` type. Points to element
+          from `unit_node` storage.
+        type: integer
+      id:
+        description: Element id
+        type: integer
+      is_visible:
+        description: is org element visible to user
+        type: boolean
+      name:
+        description: Public name of element
+        type: string
+      parent_id:
+        description: |-
+          Id of `organization element` parent. Points to another organization
+          element.
+        type: integer
+      tree_root_id:
+        description: |-
+          Id of root element which element refers to.
+          In case `tree_root_id` is elements `id`, then element is root.
+        type: integer
+      type_id:
+        description: Id of type org `org_type` table.
+        type: integer
+      unit_status:
+        description: unit_status, exists only for `org_unit` type.
+        type: string
+    type: object
+  pb.UnitPassportObject:
+    properties:
+      created_at:
+        $ref: "#/definitions/timestamppb.Timestamp"
+      id:
+        type: string
+      payload:
+        items:
+          type: integer
+        type: array
+      size:
+        type: integer
+    type: object
+  pb.UnitStatus:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  resputils.ErrResp:
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      source:
+        type: string
+      techDetails: {}
+      title:
+        type: string
+    type: object
+  resputils.StdResp:
+    properties:
+      errors:
+        items:
+          $ref: "#/definitions/resputils.ErrResp"
+        type: array
+      meta: {}
+      result: {}
+    type: object
+  roles.Action:
+    properties:
+      description:
+        type: string
+      enabled:
+        type: boolean
+      id:
+        type: integer
+      key:
+        type: string
+      name:
+        type: string
+    type: object
+  roles.IdModuleAction:
+    properties:
+      action:
+        type: string
+      id:
+        type: integer
+      module:
+        type: string
+    type: object
+  roles.Module:
+    properties:
+      actions:
+        items:
+          $ref: "#/definitions/roles.Action"
+        type: array
+      key:
+        type: string
+      name:
+        type: string
+    type: object
+  roles.Role:
+    properties:
+      id:
+        type: integer
+      modules:
+        items:
+          $ref: "#/definitions/roles.Module"
+        type: array
+      name:
+        type: string
+      notes:
+        type: string
+    type: object
+  stationsapi.BindUnitRequest:
+    properties:
+      markId:
+        type: integer
+      typeId:
+        type: integer
+    type: object
+  stationsapi.OrgElem:
+    properties:
+      childNodeId:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      parentId:
+        type: integer
+      statusDisplay:
+        type: string
+      treeRootId:
+        type: integer
+      typeId:
+        type: integer
+    type: object
+  stationsapi.Property:
+    properties:
+      defaultUsage:
+        type: boolean
+      format:
+        type: string
+      name:
+        type: string
+      type:
+        type: string
+      unit:
+        type: string
+      value:
+        items:
+          type: integer
+        type: array
+    type: object
+  stationsapi.SetOEUnitStatusRequest:
+    properties:
+      statusName:
+        type: string
+    type: object
+  stationsapi.SetOEUnitVisibilityRequest:
+    properties:
+      isVisible:
+        type: boolean
+    type: object
+  stationsapi.UnitPassport:
+    properties:
+      name:
+        type: string
+      objects:
+        items:
+          $ref: "#/definitions/stationsapi.UnitPassportObject"
+        type: array
+      oeUnitId:
+        type: integer
+      parentId:
+        type: integer
+      properties:
+        items:
+          $ref: "#/definitions/stationsapi.Property"
+        type: array
+      unitNodeId:
+        type: integer
+    type: object
+  stationsapi.UnitPassportObject:
+    properties:
+      createdAt:
+        type: integer
+      id:
+        type: string
+      payload:
+        items:
+          type: integer
+        type: array
+      size:
+        type: integer
+    type: object
+  stationsapi.UnitPassportRequest:
+    properties:
+      name:
+        type: string
+      objects:
+        items:
+          $ref: "#/definitions/stationsapi.UnitPassportObject"
+        type: array
+      parentId:
+        type: integer
+      properties:
+        items:
+          $ref: "#/definitions/stationsapi.Property"
+        type: array
+    type: object
+  stationsapi.UpdateOrgElem:
+    properties:
+      name:
+        type: string
+      parentId:
+        type: integer
+      typeId:
+        type: integer
+    type: object
+  timestamppb.Timestamp:
+    properties:
+      nanos:
+        description: |-
+          Non-negative fractions of a second at nanosecond resolution. Negative
+          second values with fractions must still have non-negative nanos values
+          that count forward in time. Must be from 0 to 999,999,999
+          inclusive.
+        type: integer
+      seconds:
+        description: |-
+          Represents seconds of UTC time since Unix epoch
+          1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
+          9999-12-31T23:59:59Z inclusive.
+        type: integer
+    type: object
+host: bff.dev.c2g.pw
+info:
+  contact: {}
+  description: Gate between frontend and backend services.
+  title: BFF
+  version: "1.0"
+paths:
+  /analytics/mdls/{mdlID}/ltags:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: mdlID
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.LogicalTag"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /events:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: Filter request
+          in: body
+          name: filter
+          required: true
+          schema:
+            $ref: "#/definitions/handlers.FilterRequest"
+        - default: ru
+          description: lang
+          enum:
+            - ru
+            - en
+          in: query
+          name: lang
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/handlers.FilterResponse"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      summary: Получение с использованием фильтра
+      tags:
+        - eventjournal
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: Rename request
+          in: body
+          name: rename
+          required: true
+          schema:
+            $ref: "#/definitions/handlers.NewEventRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      summary: Создание нового события
+      tags:
+        - eventjournal
+  /events/{id}:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: event id
+          in: path
+          name: id
+          type: integer
+        - description: event uuid
+          in: path
+          name: uuid
+          type: string
+        - default: ru
+          description: lang
+          enum:
+            - ru
+            - en
+          in: query
+          name: lang
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/handlers.Event"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      summary: Получение события по id или uuid
+      tags:
+        - eventjournal
+  /events/{id}/accept:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: event id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - eventjournal
+  /events/{id}/comments:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: event id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Rename request
+          in: body
+          name: comment
+          required: true
+          schema:
+            $ref: "#/definitions/handlers.NewCommentRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      summary: Добавление комментария к конкретному событию
+      tags:
+        - eventjournal
+  /events/{id}/decline:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: Event transition request
+          in: body
+          name: filter
+          required: true
+          schema:
+            $ref: "#/definitions/handlers.EventStateTransitionReq"
+        - description: event id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - eventjournal
+  /events/last_recomendations:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: Last recommendation filter request
+          in: body
+          name: filter
+          required: true
+          schema:
+            $ref: "#/definitions/handlers.LastRecommendationFilter"
+        - default: ru
+          description: lang
+          enum:
+            - ru
+            - en
+          in: query
+          name: lang
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/handlers.Event"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - eventjournal
+  /events/last_recomendations/statistics:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: Stats filter request
+          in: body
+          name: filter
+          required: true
+          schema:
+            $ref: "#/definitions/handlers.FilterRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/handlers.StateStats"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - eventjournal
+  /functions:
+    get:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/exprules.Function"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: Function
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: "#/definitions/exprules.Function"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/exprules.Function"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+  /functions/{id}:
+    delete:
+      consumes:
+        - application/json
+      parameters:
+        - description: function id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: function id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/exprules.Function"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: function id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Function
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: "#/definitions/exprules.Function"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/exprules.Function"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+  /its-tracker/claims:
+    post:
+      consumes:
+        - application/json
+      description:
+        Returns claims for the specified list of org nodes, optionally
+        filtered by claim status.
+      parameters:
+        - description: list of org element ids, with optional filter by claim status
+          in: body
+          name: filter
+          required: true
+          schema:
+            $ref: "#/definitions/its_tracker.FilterClaimSummaries"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/its_tracker.ClaimSummaries"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/{claimId}:
+    get:
+      consumes:
+        - application/json
+      description: Returns claim for the specified id.
+      parameters:
+        - description: claim id
+          in: path
+          name: claimId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/its_tracker.Claim"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/{claimId}/files:
+    put:
+      consumes:
+        - multipart/form-data
+      description: uploads file to server and adds it to claim
+      parameters:
+        - description: claim id
+          in: path
+          name: claimId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/its_tracker.Claim"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/{claimId}/files/{fileId}:
+    delete:
+      consumes:
+        - application/json
+      description: removes a file from the specified claim
+      parameters:
+        - description: claim id
+          in: path
+          name: claimId
+          required: true
+          type: integer
+        - description: file id
+          in: path
+          name: fileId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/resputils.StdResp"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/{claimId}/parameters/{parameterId}/file:
+    delete:
+      consumes:
+        - application/json
+      description: removes file from a specific parameter in claim
+      parameters:
+        - description: claim id
+          in: path
+          name: claimId
+          required: true
+          type: integer
+        - description: parameter id
+          in: path
+          name: parameterId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/its_tracker.Claim"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+    put:
+      consumes:
+        - application/json
+      description: attaches file to a specified parameter in claim
+      parameters:
+        - description: claim id
+          in: path
+          name: claimId
+          required: true
+          type: integer
+        - description: parameter id
+          in: path
+          name: parameterId
+          required: true
+          type: integer
+        - description: file id
+          in: query
+          name: fileId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/its_tracker.Claim"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/{claimId}/status:
+    put:
+      consumes:
+        - application/json
+      description: changes status of a claim
+      parameters:
+        - description: claim id
+          in: path
+          name: claimId
+          required: true
+          type: integer
+        - description: status
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/its_tracker.Status"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/its_tracker.Claim"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/file/{fileId}:
+    get:
+      consumes:
+        - application/json
+      description: gets a file content
+      parameters:
+        - description: file id
+          in: path
+          name: fileId
+          required: true
+          type: integer
+      produces:
+        - multipart/form-data
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/its_tracker.Claim"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/parameters/reasons:
+    get:
+      description: all available parameter change reasons
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      $ref: "#/definitions/its_tracker.ParameterChangeReason"
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/reasons:
+    get:
+      description: all available calculation reasons
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      $ref: "#/definitions/its_tracker.ClaimCalcReason"
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/statuses:
+    get:
+      description: all available statuses
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      $ref: "#/definitions/its_tracker.AllowedStatus"
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /its-tracker/claims/unit/{oeUnitId}/node/{nodeId}:
+    delete:
+      consumes:
+        - application/json
+      description: deletes claim of a claim
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitId
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: claim
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/its_tracker.Claim"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/resputils.StdResp"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+    get:
+      consumes:
+        - application/json
+      description: returns all active claims for oeUnitId and nodeId
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitId
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      $ref: "#/definitions/its_tracker.Claim"
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+    patch:
+      consumes:
+        - application/json
+      description: updates claim of a claim
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitId
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: claim
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/its_tracker.Claim"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/its_tracker.Claim"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+    put:
+      consumes:
+        - application/json
+      description: creates claim of a claim for oeUnitId and nodeId
+      parameters:
+        - description: claim
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/its_tracker.CreateClaim"
+        - description: org elem id
+          in: path
+          name: oeUnitId
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/its_tracker.Claim"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - its-tracker
+  /journals/{journalID}/records:
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: journal id
+          in: path
+          name: journalID
+          required: true
+          type: integer
+        - description: values to set
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/manualcollector.SetValuesRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/manualcollector.SetValuesResponse"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - manual-collector
+  /manual-collector/unit/{oeUnitID}/journals:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      $ref: "#/definitions/manualcollector.JournalShort"
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - manual-collector
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: journal
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/manualcollector.NewJournal"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/manualcollector.JournalIDResp"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - manual-collector
+  /manual-collector/unit/{oeUnitID}/journals/{journalID}:
+    delete:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: journal id
+          in: path
+          name: journalID
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/resputils.StdResp"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - manual-collector
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: journal id
+          in: path
+          name: journalID
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/manualcollector.Journal"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - manual-collector
+  /manual-collector/unit/{oeUnitID}/journals/{journalID}/name:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          type: integer
+        - description: journal id
+          in: path
+          name: journalID
+          required: true
+          type: integer
+        - description: new name
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/manualcollector.NewName"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/resputils.StdResp"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - manual-collector
+  /manual-collector/unit/{oeUnitID}/journals/{journalID}/tags:
+    delete:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          type: integer
+        - description: journal id
+          in: path
+          name: journalID
+          required: true
+          type: integer
+        - description: ltag uuids
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/manualcollector.Tags"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/resputils.StdResp"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - manual-collector
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          type: integer
+        - description: journal id
+          in: path
+          name: journalID
+          required: true
+          type: integer
+        - description: ltag uuids
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/manualcollector.Tags"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/resputils.StdResp"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - manual-collector
+  /modeling/cluster/{id}/rename:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: cluster id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Rename request
+          in: body
+          name: rename
+          required: true
+          schema:
+            $ref: "#/definitions/modelrepo.RenameReq"
+        - description: Authorization
+          in: header
+          name: Authorization
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+        - modelrepo
+  /modeling/clustering/{id}/rename:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: clustering id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Rename request
+          in: body
+          name: rename
+          required: true
+          schema:
+            $ref: "#/definitions/modelrepo.RenameReq"
+        - description: Authorization
+          in: header
+          name: Authorization
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+        - modelrepo
+  /modeling/createSystemModel:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.CreateSystemModelIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.UiModelId"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/dataset/{id}/rename:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: dataset id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Rename request
+          in: body
+          name: rename
+          required: true
+          schema:
+            $ref: "#/definitions/modelrepo.RenameReq"
+        - description: Authorization
+          in: header
+          name: Authorization
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+        - modelrepo
+  /modeling/getClustersByClusteringId/{id}:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: clustering id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.Cluster"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /modeling/getClustersByUiModelId/{id}:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.Cluster"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /modeling/getParametersByModelId/{id}:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.Param"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /modeling/getParametersByUiModelId/{id}:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.Param"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /modeling/getTimeRangeByUiModelId/{id}:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/modelrepo.TimeRange"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /modeling/getUiModelEvents/{id}:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.UiModelEvent"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /modeling/getUiModelState/{id}:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.UiModelState"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /modeling/mode/{id}/rename:
+    patch:
+      consumes:
+        - application/json
+      description: Rename mode
+      parameters:
+        - description: mode id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Rename request
+          in: body
+          name: rename
+          required: true
+          schema:
+            $ref: "#/definitions/modelrepo.RenameReq"
+        - description: Authorization
+          in: header
+          name: Authorization
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+        - modelrepo
+  /modeling/model/{id}/rename:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Rename request
+          in: body
+          name: rename
+          required: true
+          schema:
+            $ref: "#/definitions/modelrepo.RenameReq"
+        - description: Authorization
+          in: header
+          name: Authorization
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+        - modelrepo
+  /modeling/model/{modelId}/correlation:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: modelId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.CorrelationMatrixOut"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/model/{modelId}/dataSource:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: modelId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      items: {}
+                      type: array
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/model/{modelId}/distribution:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: modelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.DistributionIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.DistributionOut"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/model/{modelId}/history:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: modelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.HistoryIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.HistoryOut"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/model/{modelId}/scatter:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: modelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.ScatterIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.ScatterOut"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{id}:
+    delete:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.UiModelEvent"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /modeling/uimodel/{id}/rename:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Rename request
+          in: body
+          name: rename
+          required: true
+          schema:
+            $ref: "#/definitions/modelrepo.RenameReq"
+        - description: Authorization
+          in: header
+          name: Authorization
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+        - modelrepo
+  /modeling/uimodel/{uiModelId}/activate:
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: uiModelId
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/buildModels:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.CreateModelsFromClustersIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/buildUserModels:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.CreateSystemModelIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/correlation:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.CorrelationMatrixOut"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/createMode:
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.CreateUserModeReq"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/dataSource:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      items: {}
+                      type: array
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/distribution:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.DistributionIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.DatasetDistributionOut"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/mode:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.GetUserModelResp"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/points/changeStatus:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.PointsChangeStatusIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/points/move:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: ui model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            items:
+              properties:
+                parameterID:
+                  type: integer
+                timeMomentIDs:
+                  items:
+                    type: integer
+                  type: array
+                values:
+                  items:
+                    type: number
+                  type: array
+              type: object
+            type: array
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/replay:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: uiModelId
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.ReplayUiModelIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/{uiModelId}/scatter:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: model id
+          in: path
+          name: uiModelId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.ScatterIn"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.ScatterOut"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/list:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.ListUiModelsReq"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      $ref: "#/definitions/modeling.UiModel"
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /modeling/uimodel/new:
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/modeling.CreateUiModelReq"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/modeling.CreateUiModelResp"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modeling
+  /oe-ltags:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: Filter
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: "#/definitions/mixed.OeLtagIdList"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/mixed.OeLtag"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - mixed
+  /org-trees/{orgTreeRootId}/nodes/{nodeId}:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: org tree root id
+          in: path
+          name: orgTreeRootId
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeID
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.UpdateOrgElem"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/stationsapi.OrgElem"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /org-trees/{orgTreeRootId}/nodes/{nodeId}/bindunit:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: org tree root id
+          in: path
+          name: orgTreeRootId
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeID
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.BindUnitRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/stationsapi.OrgElem"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /org-trees/{orgTreeRootId}/nodes/{nodeId}/status:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: org tree root id
+          in: path
+          name: orgTreeRootId
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeID
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.SetOEUnitStatusRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/pb.OrgElem"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /org-trees/{orgTreeRootId}/nodes/{nodeId}/visibility:
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: org tree root id
+          in: path
+          name: orgTreeRootId
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeID
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.SetOEUnitVisibilityRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/pb.OrgElem"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /org-trees/{orgTreeRootId}/nodes/{oeUnitID}/nodes/{nodeID}/analytics/calc-groups:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: org tree root id
+          in: path
+          name: orgTreeRootId
+          required: true
+          type: integer
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeID
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.CalcGroup"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /org-trees/{orgTreeRootId}/nodes/{oeUnitID}/nodes/{nodeID}/analytics/system-model:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: org tree root id
+          in: path
+          name: orgTreeRootId
+          required: true
+          type: integer
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeID
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/modelrepo.SystemModel"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - modelrepo
+  /org-trees/{orgTreeRootId}/nodes/{oeUnitId}/nodes/{nodeId}/passport:
+    delete:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassport"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassportRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassport"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: org unit id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassportRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassport"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /org-trees/{orgTreeRootId}/nodes/{oeUnitId}/nodes/{nodeId}/passport/object:
+    put:
+      consumes:
+        - application/json
+      description: uploads object(file) for a specific unit node passport
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: file
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassportObject"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/pb.ObjectResponse"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /org-trees/{orgTreeRootId}/nodes/{oeUnitId}/nodes/{nodeId}/passport/object/{objectId}:
+    delete:
+      consumes:
+        - application/json
+      description: removes specified object(file) for a unit node passport
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: object id
+          in: path
+          name: objectId
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/pb.UnitPassportObject"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+    get:
+      consumes:
+        - application/json
+      description: retrieves object by objectId
+      parameters:
+        - description: org elem id
+          in: path
+          name: oeUnitID
+          required: true
+          type: integer
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: object id
+          in: path
+          name: objectId
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/pb.UnitPassportObject"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /org-trees/{orgTreeRootId}/nodes/{orgElemId}/analytics/stat-model-summary:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: org tree root id
+          in: path
+          name: orgTreeRootId
+          required: true
+          type: integer
+        - description: org elem id
+          in: path
+          name: orgElemId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/mixed.SummaryItem"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - mixed
+  /org-trees/{rootId}/nodes/{nodeId}/nodes/{unitId}/ltags/const:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: nodeId
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: unitId
+          in: path
+          name: unitId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/mixed.ConstTag"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - mixed
+  /roles:
+    get:
+      description: returns a list of roles.Role
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      $ref: "#/definitions/roles.Role"
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - authorization
+  /roles/{roleId}:
+    delete:
+      consumes:
+        - application/json
+      description: delete a role
+      parameters:
+        - description: role id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Role
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: "#/definitions/roles.Role"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/roles.Role"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - authorization
+    patch:
+      consumes:
+        - application/json
+      description: update a role
+      parameters:
+        - description: role id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: Role
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: "#/definitions/roles.Role"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/roles.Role"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - authorization
+    put:
+      consumes:
+        - application/json
+      description: create a new role
+      parameters:
+        - description: Role
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: "#/definitions/roles.Role"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/roles.Role"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - authorization
+  /roles/{roleId}/action/{actionId}/disable:
+    post:
+      consumes:
+        - application/json
+      description: remove an action from a role
+      parameters:
+        - description: role id
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: action id
+          in: path
+          name: actionId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/resputils.StdResp"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - authorization
+  /roles/{roleId}/action/{actionId}/enable:
+    post:
+      consumes:
+        - application/json
+      description: add an action to a role
+      parameters:
+        - description: role id
+          in: path
+          name: roleId
+          required: true
+          type: integer
+        - description: action id
+          in: path
+          name: actionId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/resputils.StdResp"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - authorization
+  /roles/module_actions:
+    get:
+      description: returns a list of roles.ModuleAction
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      $ref: "#/definitions/roles.IdModuleAction"
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - authorization
+  /rules:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: Filter
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: "#/definitions/exprules.Filter"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: "#/definitions/exprules.ExpertRule"
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: ExpertRule
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: "#/definitions/exprules.ExpertRule"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/exprules.ExpertRule"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+  /rules/{ruleId}:
+    delete:
+      consumes:
+        - application/json
+      parameters:
+        - description: rule id
+          in: path
+          name: ruleId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: rule id
+          in: path
+          name: ruleId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/exprules.ExpertRule"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: rule id
+          in: path
+          name: ruleId
+          required: true
+          type: integer
+        - description: ExpertRule
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: "#/definitions/exprules.ExpertRule"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/exprules.ExpertRule"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+  /rules/{ruleId}/disable:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: rule id
+          in: path
+          name: ruleId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+  /rules/{ruleId}/enable:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: rule id
+          in: path
+          name: ruleId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - exprules
+  /unitnode-trees/{treeRootId}/nodes/{nodeId}/passport:
+    delete:
+      consumes:
+        - application/json
+      parameters:
+        - description: tree root id
+          in: path
+          name: treeRootId
+          required: true
+          type: integer
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - description: tree root id
+          in: path
+          name: treeRootId
+          required: true
+          type: integer
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassport"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: tree root id
+          in: path
+          name: treeRootId
+          required: true
+          type: integer
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassportRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassport"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: tree root id
+          in: path
+          name: treeRootId
+          required: true
+          type: integer
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: Request
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassportRequest"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassport"
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /unitnode-trees/{treeRootId}/nodes/{nodeId}/passport/object:
+    put:
+      consumes:
+        - application/json
+      description: uploads object(file) for a specific unit node passport
+      parameters:
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: file
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/stationsapi.UnitPassportObject"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/pb.ObjectResponse"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /unitnode-trees/{treeRootId}/nodes/{nodeId}/passport/object/{objectId}:
+    delete:
+      consumes:
+        - application/json
+      description: removes specified object(file) for a unit node passport
+      parameters:
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: object id
+          in: path
+          name: objectId
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+    get:
+      consumes:
+        - application/json
+      description: retrieves object by objectId
+      parameters:
+        - description: unit node id
+          in: path
+          name: nodeId
+          required: true
+          type: integer
+        - description: object id
+          in: path
+          name: objectId
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    $ref: "#/definitions/pb.UnitPassportObject"
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+  /unitnode-trees/statuses:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - default: ru
+          description: lang
+          enum:
+            - ru
+            - en
+          in: query
+          name: lang
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+              - $ref: "#/definitions/resputils.StdResp"
+              - properties:
+                  result:
+                    items:
+                      $ref: "#/definitions/pb.UnitStatus"
+                    type: array
+                type: object
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/resputils.ErrResp"
+      security:
+        - Auth: []
+      tags:
+        - stationsapi
+schemes:
+  - https
+securityDefinitions:
+  Auth:
+    description: Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njk2MjgzNDcsImlhdCI6MTY2OTYyODA0NywiY2xpZW50X2lkIjoyLCJjbGllbnRfdHlwZSI6InVzZXIifQ.XJ9UmrbzuVHdWQNBaG7NL3H0HtuqepcDyZUS2MIaCA058mErtXFCQfeC1uP8OOVcMfTTHSBS_SB-4p7vvJVlQQ
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

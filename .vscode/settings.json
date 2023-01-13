@@ -270,7 +270,7 @@
     {
       "previewLimit": 50,
       "server": "localhost",
-      "port": 7000,
+      "port": 7002,
       "driver": "PostgreSQL",
       "name": "LOCAL   ",
       "database": "db",
@@ -533,5 +533,6 @@
   "window.customMenuBarAltFocus": false,
   "python.formatting.provider": "black",
   "terminal.integrated.fontFamily": "MesloLGS NF",
-  "cmake.configureOnOpen": false
+  "cmake.configureOnOpen": false,
+  "window.zoomLevel": 1
 }
