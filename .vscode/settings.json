@@ -532,6 +532,5 @@
   "window.titleBarStyle": "custom",
   "window.customMenuBarAltFocus": false,
   "python.formatting.provider": "black",
-  "terminal.integrated.fontFamily": "MesloLGS NF",
   "workbench.colorTheme": "Default Dark+"
 }
