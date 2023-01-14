@@ -17,8 +17,7 @@ makepkg -si
 cd ..
 sudo rm -r yay
 
-yay -Sy snapd gksu appimagelauncher gnome-shell-extension-gtile-git visual-studio-code-bin
-
+yay -Sy snapd gksu appimagelauncher gnome-shell-extension-gtile-git visual-studio-code-bin gnome-shell-extensions gnome-browser-connector
 
 code --install-extension dancheg97.grpc-clicker
 code --install-extension dancheg97.flow-case
@@ -50,3 +49,18 @@ code --install-extension raynigon.nginx-formatter
 
 ln -s ~/os/.vscode/keybindings.json ~/.config/Code/User/keybindings.json
 ln -s ~/os/.vscode/settings.json ~/.config/Code/User/settings.json
+
+systemctl enable --now snapd.socket
+systemctl start docker.service
+systemctl enable docker.service
+pamac install docker-compose
+sudo usermod -aG docker $USER
+
+go install mvdan.cc/gofumpt@latest
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
+go install github.com/swaggo/swag/cmd/swag@latest
+go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
+go env -w GOPRIVATE="gitlab.c2g.pw"
+source /etc/environment && export PATH=$(go env GOPATH)/bin:$PATH
+echo 'export PATH=$(go env GOPATH)/bin:$PATH' >> ~/.zshrc
+source ~/.zshrc
