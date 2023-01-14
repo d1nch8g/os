@@ -5,7 +5,6 @@ sudo pacman -S flatpak nodejs npm docker gamemode wireguard-tools go python-pip 
 git config --global user.email "dangdancheg@gmail.com"
 git config --global user.name "dancheg97"
 git config --global credential.helper store
-git config --global http.sslVerify false
 git config --global url."ssh://git@gitlab.c2g.pw/".insteadOf "https://gitlab.c2g.pw/"
 git config --global url."ssh://git@gitlab.c2g.pw/".name "Danila Fominykh"
 git config --global url."ssh://git@gitlab.c2g.pw/".email "dfominykh@c2g.local"
@@ -25,7 +24,6 @@ code --install-extension ms-python.python
 code --install-extension esbenp.prettier-vscode
 code --install-extension ritwickdey.LiveServer
 code --install-extension ms-azuretools.vscode-docker
-code --install-extension ms-vscode.cpptools-extension-pack
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension PKief.material-icon-theme
@@ -33,7 +31,6 @@ code --install-extension ms-vscode-remote.remote-ssh
 code --install-extension MS-vsliveshare.vsliveshare
 code --install-extension redhat.vscode-yaml
 code --install-extension golang.Go
-code --install-extension Dart-Code.dart-code
 code --install-extension mhutchie.git-graph
 code --install-extension rangav.vscode-thunder-client
 code --install-extension zxh404.vscode-proto3
