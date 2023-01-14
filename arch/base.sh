@@ -1,6 +1,12 @@
 sudo pacman -Syu
 sudo pacman -S drawing git chromium telegram-desktop
+sudo pacman -S gnome-backgrounds gnome-calculator gnome-calendar
+
 sudo pacman -S flatpak nodejs npm docker gamemode wireguard-tools go python-pip make mattermost-desktop discord godot
+
+dconf write /org/gnome/desktop/wm/keybindings/switch-windows "['<Super>Tab', '<Alt>Tab']"
+dconf write /org/gnome/desktop/wm/keybindings/switch-applications "['']"
+gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat
 
 git config --global user.email "dangdancheg@gmail.com"
 git config --global user.name "dancheg97"
