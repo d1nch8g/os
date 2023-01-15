@@ -1,7 +1,6 @@
 sudo pacman -Syu
 sudo pacman -S drawing git chromium telegram-desktop
-sudo pacman -S gnome-backgrounds gnome-calculator gnome-calendar
-
+sudo pacman -S gnome-calculator gnome-calendar gnome-control-center gnome-disk-utility gnome-keyring gnome-logs gnome-system-monitor gnome-shell-extensions xdg-user-dirs-gtk gedit gnome-terminal gnome-tweaks
 sudo pacman -S flatpak nodejs npm docker gamemode wireguard-tools go python-pip make mattermost-desktop discord godot
 
 dconf write /org/gnome/desktop/wm/keybindings/switch-windows "['<Super>Tab', '<Alt>Tab']"
@@ -11,9 +10,6 @@ gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat
 git config --global user.email "dangdancheg@gmail.com"
 git config --global user.name "dancheg97"
 git config --global credential.helper store
-git config --global url."ssh://git@gitlab.c2g.pw/".insteadOf "https://gitlab.c2g.pw/"
-git config --global url."ssh://git@gitlab.c2g.pw/".name "Danila Fominykh"
-git config --global url."ssh://git@gitlab.c2g.pw/".email "dfominykh@c2g.local"
 
 pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
@@ -22,7 +18,7 @@ makepkg -si
 cd ..
 sudo rm -r yay
 
-yay -Sy ttf-droid snapd gksu appimagelauncher gnome-shell-extension-gtile-git visual-studio-code-bin gnome-shell-extensions gnome-browser-connector
+yay -Sy ttf-droid snapd gksu appimagelauncher gnome-browser-connector visual-studio-code-bin
 
 code --install-extension dancheg97.grpc-clicker
 code --install-extension dancheg97.flow-case
