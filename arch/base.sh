@@ -56,3 +56,7 @@ sudo usermod -aG docker $USER
 
 go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 source /etc/environment && export PATH=$(go env GOPATH)/bin:$PATH
+
+
+echo 'alias vpn="wg-quick down ~/os/tmp/wg.conf;wg-quick up ~/os/tmp/wg.conf"' >> ~/.bashrc
+echo 'alias vpn2="wg-quick down ~/os/tmp/wg2.conf;wg-quick up ~/os/tmp/wg2.conf"' >> ~/.bashrc
