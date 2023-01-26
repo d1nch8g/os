@@ -19,3 +19,5 @@ code --install-extension mhutchie.git-graph &
 code --install-extension rangav.vscode-thunder-client &
 code --install-extension zxh404.vscode-proto3 &
 code --install-extension svelte.svelte-vscode
+
+sudo pacman -Sy wireguard-tools resolvconf
