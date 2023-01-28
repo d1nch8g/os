@@ -5,6 +5,7 @@ echo '  name = Danila Fominykh' >> ~/.gitconfig
 echo '  email = dfominykh@c2g.local' >> ~/.gitconfig
 
 go env -w GOPRIVATE="gitlab.c2g.pw"
+export GOPATH=$HOME/go
 
 code --install-extension dancheg97.grpc-clicker &
 code --install-extension esbenp.prettier-vscode &
