@@ -1,10 +1,3 @@
-echo '[url "ssh://git@gitlab.c2g.pw/"]' >> ~/.gitconfig
-echo '  email = d.fominykh@ctrl2go.solutions' >> ~/.gitconfig
-echo '  insteadOf = https://gitlab.c2g.pw/' >> ~/.gitconfig
-echo '  name = Danila Fominykh' >> ~/.gitconfig
-echo '  email = dfominykh@c2g.local' >> ~/.gitconfig
-
-go env -w GOPRIVATE="gitlab.c2g.pw"
 
 code --install-extension dancheg97.grpc-clicker &
 code --install-extension esbenp.prettier-vscode &
@@ -19,7 +12,5 @@ code --install-extension mhutchie.git-graph &
 code --install-extension rangav.vscode-thunder-client &
 code --install-extension zxh404.vscode-proto3 &
 code --install-extension svelte.svelte-vscode
-
-sudo pacman -Sy wireguard-tools resolvconf
 
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
