@@ -1,4 +1,9 @@
-yay -Sy --needed --noconfirm telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin
+yay -Sy --needed --noconfirm telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc
+
+echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
+
+sudo dart pub global activate protoc_plugin
 
 nativefier --name kuma https://kuma.dancheg97.ru
 cp /home/dancheg97/os/kuma.desktop ~/.local/share/applications/kuma.desktop
@@ -28,6 +33,3 @@ code --install-extension mhutchie.git-graph &
 code --install-extension rangav.vscode-thunder-client &
 code --install-extension zxh404.vscode-proto3 &
 code --install-extension svelte.svelte-vscode
-
-echo 'export GOPATH=$HOME/go' >> ~/.bashrc
-echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
