@@ -1,4 +1,4 @@
-yay -Sy telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin gofumpt
+yay -Sy --needed --noconfirm telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin gofumpt
 
 nativefier --name kuma https://kuma.dancheg97.ru
 cp /home/dancheg97/os/kuma.desktop ~/.local/share/applications/kuma.desktop
@@ -10,6 +10,7 @@ git clone https://dancheg97.ru/dancheg97/os
 git clone https://dancheg97.ru/dancheg97/ctrlos
 git clone https://dancheg97.ru/dancheg97/grpclicker_vscode
 git clone https://dancheg97.ru/dancheg97/ctlpkg
+cd os
 
 code --install-extension dancheg97.grpc-clicker &
 code --install-extension esbenp.prettier-vscode &

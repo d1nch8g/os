@@ -161,5 +161,17 @@
   {
     "key": "ctrl+y",
     "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "ctrl+shift+a",
+    "command": "workbench.action.focusActivityBar"
+  },
+  {
+    "key": "ctrl+shift+r",
+    "command": "-workbench.view.extension.thunder-client"
+  },
+  {
+    "key": "ctrl+shift+r",
+    "command": "-workbench.view.extension.grpc-clicker"
   }
 ]
