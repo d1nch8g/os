@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Uptime Kuma
+GenericName=Monitoring service
+Comment=Uptime Kuma
+Exec=/home/dancheg97/os/kuma-linux-x64/kuma
+Icon=/home/dancheg97/os/kuma.png
+Type=Application
+StartupNotify=true

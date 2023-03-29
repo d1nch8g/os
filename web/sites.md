@@ -1,9 +1,0 @@
-HABR habr.com
-GITHUB github.com
-GITEA gitea.dancheg97.ru
-DRONE drone.dancheg97.ru
-PORTAINER portainer.dancheg97.ru
-ROUTER 192.168.1.254
-TRANSLATE translate.yandex.com
-GITLAB gitlab.c2g.pw
-CLICKUP app.clickup.com
