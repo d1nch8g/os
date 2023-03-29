@@ -1,9 +1,10 @@
-yay -Sy telegram-desktop chromium yandex-music-player nodejs-nativefier
+yay -Sy telegram-desktop chromium yandex-music-player nodejs-nativefier flutter
 
 nativefier --name kuma https://kuma.dancheg97.ru
 cp /home/dancheg97/os/kuma.desktop ~/.local/share/applications/kuma.desktop
 nativefier --name drone https://drone.dancheg97.ru
 cp /home/dancheg97/os/drone.desktop ~/.local/share/applications/drone.desktop
+
 
 
 code --install-extension dancheg97.grpc-clicker &
