@@ -1,4 +1,4 @@
-yay -Sy --needed --noconfirm telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
+yay -Sy --needed --noconfirm docker telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
@@ -13,6 +13,10 @@ cp /home/dancheg97/os/drone.desktop ~/.local/share/applications/drone.desktop
 
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
+
+systemctl start docker.service
+systemctl enable docker.service
+usermod -aG docker dancheg97
 
 cd ~
 git clone https://dancheg97.ru/dancheg97/os
