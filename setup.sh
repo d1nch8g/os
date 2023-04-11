@@ -40,3 +40,5 @@ code --install-extension svelte.svelte-vscode
 
 cp settings.json ~/.config/Code/User/settings.json
 cp keybindings.json ~/.config/Code/User/keybindings.json
+
+cp ~/os/cfg ~/.gitconfig
