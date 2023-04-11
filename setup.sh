@@ -2,8 +2,9 @@ yay -Sy --needed --noconfirm telegram-desktop chromium yandex-music-player nodej
 
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
+echo 'export PATH=$PATH:$HOME/.pub-cache/bin' >> ~/.bashrc
 
-sudo dart pub global activate protoc_plugin
+dart pub global activate protoc_plugin
 
 nativefier --name kuma https://kuma.dancheg97.ru
 cp /home/dancheg97/os/kuma.desktop ~/.local/share/applications/kuma.desktop
@@ -17,7 +18,9 @@ cd ~
 git clone https://dancheg97.ru/dancheg97/os
 git clone https://dancheg97.ru/dancheg97/ctrlos
 git clone https://dancheg97.ru/dancheg97/grpclicker_vscode
-git clone https://dancheg97.ru/dancheg97/ctlpkg
+git clone https://dancheg97.ru/dancheg97/fluepkg
+git clone https://dancheg97.ru/dancheg97/flueos
+git clone https://dancheg97.ru/dancheg97/gnome-archinstall
 cd os
 
 code --install-extension dancheg97.grpc-clicker &
