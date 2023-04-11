@@ -1,4 +1,4 @@
-yay -Sy --needed --noconfirm telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc
+yay -Sy --needed --noconfirm telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
@@ -21,6 +21,7 @@ git clone https://dancheg97.ru/dancheg97/grpclicker_vscode
 git clone https://dancheg97.ru/dancheg97/fluepkg
 git clone https://dancheg97.ru/dancheg97/flueos
 git clone https://dancheg97.ru/dancheg97/gnome-archinstall
+wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
 cd os
 
 code --install-extension dancheg97.grpc-clicker &
@@ -37,7 +38,5 @@ code --install-extension rangav.vscode-thunder-client &
 code --install-extension zxh404.vscode-proto3 &
 code --install-extension svelte.svelte-vscode
 
-sudo pacman --noconfirm -Sy qemu-desktop edk2-ovmf archiso archinstall
-yay -Sy --noconfirm meson ninja appimagelauncher
-wget -O balenaEtcher-1.13.1-x64.AppImage https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
-./balenaEtcher-1.13.1-x64.AppImage
+cp settings.json ~/.config/Code/User/settings.json
+cp keybindings.json ~/.config/Code/User/keybindings.json
