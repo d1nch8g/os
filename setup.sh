@@ -36,3 +36,8 @@ code --install-extension mhutchie.git-graph &
 code --install-extension rangav.vscode-thunder-client &
 code --install-extension zxh404.vscode-proto3 &
 code --install-extension svelte.svelte-vscode
+
+sudo pacman --noconfirm -Sy qemu-desktop edk2-ovmf archiso archinstall
+yay -Sy --noconfirm meson ninja appimagelauncher
+wget -O balenaEtcher-1.13.1-x64.AppImage https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
+./balenaEtcher-1.13.1-x64.AppImage
