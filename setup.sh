@@ -1,3 +1,4 @@
+cp ~/os/cfg ~/.gitconfig
 yay -Sy --needed --noconfirm visual-studio-code-bin docker telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
@@ -22,8 +23,8 @@ cd ~
 git clone https://dancheg97.ru/dancheg97/os
 git clone https://dancheg97.ru/dancheg97/ctrlos
 git clone https://dancheg97.ru/dancheg97/grpclicker_vscode
-git clone https://dancheg97.ru/dancheg97/fluepkg
-git clone https://dancheg97.ru/dancheg97/flueos
+git clone https://dancheg97.ru/dancheg97/fleupkg
+git clone https://dancheg97.ru/dancheg97/fleuos
 git clone https://dancheg97.ru/dancheg97/gnome-archinstall
 wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
 cd os
@@ -45,4 +46,3 @@ code --install-extension svelte.svelte-vscode
 cp settings.json ~/.config/Code/User/settings.json
 cp keybindings.json ~/.config/Code/User/keybindings.json
 
-cp ~/os/cfg ~/.gitconfig
