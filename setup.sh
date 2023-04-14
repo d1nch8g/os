@@ -8,7 +8,7 @@ echo 'export PATH=$PATH:$HOME/.pub-cache/bin' >> ~/.bashrc
 dart pub global activate protoc_plugin
 
 git config --global --add safe.directory /opt/flutter
-sudo chmod a+rwx /opt/flutter
+sudo chmod a+rwx -R /opt/flutter
 
 nativefier --name kuma https://kuma.dancheg97.ru
 cp /home/dancheg97/os/kuma.desktop ~/.local/share/applications/kuma.desktop
