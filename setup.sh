@@ -1,11 +1,14 @@
 cp ~/os/cfg ~/.gitconfig
-yay -Sy --needed --noconfirm visual-studio-code-bin docker telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
+yay -Sy --needed --noconfirm cmake clang visual-studio-code-bin docker telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
 echo 'export PATH=$PATH:$HOME/.pub-cache/bin' >> ~/.bashrc
 
 dart pub global activate protoc_plugin
+
+git config --global --add safe.directory /opt/flutter
+sudo chmod a+rwx /opt/flutter
 
 nativefier --name kuma https://kuma.dancheg97.ru
 cp /home/dancheg97/os/kuma.desktop ~/.local/share/applications/kuma.desktop
