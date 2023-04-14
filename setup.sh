@@ -22,16 +22,6 @@ systemctl start docker.service
 systemctl enable docker.service
 usermod -aG docker dancheg97
 
-cd ~
-git clone https://dancheg97.ru/dancheg97/os
-git clone https://dancheg97.ru/dancheg97/ctrlos
-git clone https://dancheg97.ru/dancheg97/grpclicker_vscode
-git clone https://dancheg97.ru/dancheg97/fleupkg
-git clone https://dancheg97.ru/dancheg97/fleuos
-git clone https://dancheg97.ru/dancheg97/gnome-archinstall
-wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
-cd os
-
 code --install-extension dancheg97.grpc-clicker &
 code --install-extension esbenp.prettier-vscode &
 code --install-extension ms-azuretools.vscode-docker &
@@ -44,9 +34,19 @@ code --install-extension golang.Go &
 code --install-extension mhutchie.git-graph &
 code --install-extension rangav.vscode-thunder-client &
 code --install-extension zxh404.vscode-proto3 &
+code --install-extension Dart-Code.flutter &
 code --install-extension svelte.svelte-vscode
+
+cd ~
+git clone https://dancheg97.ru/dancheg97/os
+git clone https://dancheg97.ru/dancheg97/ctrlos
+git clone https://dancheg97.ru/dancheg97/grpclicker_vscode
+git clone https://dancheg97.ru/dancheg97/fleupkg
+git clone https://dancheg97.ru/dancheg97/fleuos
+git clone https://dancheg97.ru/dancheg97/gnome-archinstall
+wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
+cd os
 
 cp settings.json ~/.config/Code/User/settings.json
 cp keybindings.json ~/.config/Code/User/keybindings.json
 
-chsh -c /usr/bin/zsh dancheg97
