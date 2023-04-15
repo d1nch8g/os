@@ -7,7 +7,7 @@
 This repository contains single script to set up arch based distribution for dancheg97.
 
 ```sh
-cd ~ && git clone https://dancheg97.ru/dancheg97/os && cd os && sh setup.sh
+cd ~ && git clone https://fmnx.ru/dancheg97/os && cd os && sh setup.sh
 ```
 
 Also those gnome extensions might be suitable:

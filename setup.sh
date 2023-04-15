@@ -1,4 +1,6 @@
-cp ~/os/cfg ~/.gitconfig
+git config --global push.followTags true
+git config --global credential.helper store
+
 yay -Sy --needed --noconfirm cmake clang visual-studio-code-bin docker telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
@@ -11,16 +13,16 @@ git config --global --add safe.directory /opt/flutter
 sudo chmod a+rwx -R /opt/flutter
 
 nativefier --name kuma https://up.fmnx.ru
-cp /home/dancheg97/os/kuma.desktop ~/.local/share/applications/kuma.desktop
+cp ~/os/kuma.desktop ~/.local/share/applications/kuma.desktop
 nativefier --name drone https://ci.fmnx.ru
-cp /home/dancheg97/os/drone.desktop ~/.local/share/applications/drone.desktop
+cp ~/os/drone.desktop ~/.local/share/applications/drone.desktop
 
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
 
 systemctl start docker.service
 systemctl enable docker.service
-usermod -aG docker dancheg97
+usermod -aG docker $USER
 
 code --install-extension dancheg97.grpc-clicker &
 code --install-extension esbenp.prettier-vscode &
