@@ -43,7 +43,7 @@ git clone https://fmnx.ru/dancheg97/ctrlos
 git clone https://fmnx.ru/dancheg97/grpclicker_vscode
 git clone https://fmnx.ru/dancheg97/fmnxpkg
 git clone https://fmnx.ru/dancheg97/fmnx
-git clone https://fmnx.ru/dancheg97/gnome-archinstall
+git clone https://fmnx.ru/dancheg97/fmnx-install
 wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
 cd os
 
@@ -51,7 +51,7 @@ cp settings.json ~/.config/Code/User/settings.json
 cp keybindings.json ~/.config/Code/User/keybindings.json
 
 sed -i 's|LAMODA|FOZZY|g' ~/.config/chromium/Default/Preferences
-sed -i 's|www.lamoda.ru|accounts.fozzy.com/clientarea.php?language=russian|g' ~/.config/chromium/Default/Preferences
+sed -i 's|www.lamoda.ru|accounts.fozzy.com/clientarea.php|g' ~/.config/chromium/Default/Preferences
 
 sed -i 's|VK|FLATICON|g' ~/.config/chromium/Default/Preferences
 sed -i 's|vk.com|www.flaticon.com/ru|g' ~/.config/chromium/Default/Preferences
