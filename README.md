@@ -4,9 +4,7 @@
 
 <h2 align="center">Arch based distribution setup for dancheg97</h2>
 
-    This repository contains single script to set up arch based distribution for
-
-dancheg97.
+This repository contains single script to set up arch based distribution for dancheg97.
 
 ```sh
 cd ~ && git clone https://dancheg97.ru/dancheg97/os && cd os && sh setup.sh
