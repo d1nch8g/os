@@ -61,3 +61,6 @@ sed -i 's|www.tinkoff.ru|fmnx.ru|g' ~/.config/chromium/Default/Preferences
 
 sed -i 's|Y-DISK|SVGREPO|g' ~/.config/chromium/Default/Preferences
 sed -i 's|disk.yandex.com|svgrepo.com|g' ~/.config/chromium/Default/Preferences
+
+sed -i 's|Y-TRAVEL|GITHUB|g' ~/.config/chromium/Default/Preferences
+sed -i 's|travel.yandex.ru|github.com|g' ~/.config/chromium/Default/Preferences
