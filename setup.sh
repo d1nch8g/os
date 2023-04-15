@@ -50,3 +50,11 @@ cd os
 cp settings.json ~/.config/Code/User/settings.json
 cp keybindings.json ~/.config/Code/User/keybindings.json
 
+sed -i 's|LAMODA|FOZZY|g' ~/.config/chromium/Default/Preferences
+sed -i 's|www.lamoda.ru|accounts.fozzy.com/clientarea.php?language=russian|g' ~/.config/chromium/Default/Preferences
+
+sed -i 's|VK|FLATICON|g' ~/.config/chromium/Default/Preferences
+sed -i 's|vk.com|www.flaticon.com/ru|g' ~/.config/chromium/Default/Preferences
+
+sed -i 's|TINKOFF|FMNX|g' ~/.config/chromium/Default/Preferences
+sed -i 's|www.tinkoff.ru|fmnx.ru|g' ~/.config/chromium/Default/Preferences
