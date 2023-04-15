@@ -10,9 +10,9 @@ dart pub global activate protoc_plugin
 git config --global --add safe.directory /opt/flutter
 sudo chmod a+rwx -R /opt/flutter
 
-nativefier --name kuma https://kuma.dancheg97.ru
+nativefier --name kuma https://up.fmnx.ru
 cp /home/dancheg97/os/kuma.desktop ~/.local/share/applications/kuma.desktop
-nativefier --name drone https://drone.dancheg97.ru
+nativefier --name drone https://ci.fmnx.ru
 cp /home/dancheg97/os/drone.desktop ~/.local/share/applications/drone.desktop
 
 go install github.com/ktr0731/evans@latest
@@ -38,12 +38,12 @@ code --install-extension Dart-Code.flutter &
 code --install-extension svelte.svelte-vscode
 
 cd ~
-git clone https://dancheg97.ru/dancheg97/os
-git clone https://dancheg97.ru/dancheg97/ctrlos
-git clone https://dancheg97.ru/dancheg97/grpclicker_vscode
-git clone https://dancheg97.ru/dancheg97/fmnxpkg
-git clone https://dancheg97.ru/dancheg97/fmnx
-git clone https://dancheg97.ru/dancheg97/gnome-archinstall
+git clone https://fmnx.ru/dancheg97/os
+git clone https://fmnx.ru/dancheg97/ctrlos
+git clone https://fmnx.ru/dancheg97/grpclicker_vscode
+git clone https://fmnx.ru/dancheg97/fmnxpkg
+git clone https://fmnx.ru/dancheg97/fmnx
+git clone https://fmnx.ru/dancheg97/gnome-archinstall
 wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
 cd os
 
