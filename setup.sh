@@ -41,8 +41,8 @@ cd ~
 git clone https://dancheg97.ru/dancheg97/os
 git clone https://dancheg97.ru/dancheg97/ctrlos
 git clone https://dancheg97.ru/dancheg97/grpclicker_vscode
-git clone https://dancheg97.ru/dancheg97/fleupkg
-git clone https://dancheg97.ru/dancheg97/fleuos
+git clone https://dancheg97.ru/dancheg97/fmnxpkg
+git clone https://dancheg97.ru/dancheg97/fmnx
 git clone https://dancheg97.ru/dancheg97/gnome-archinstall
 wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
 cd os
