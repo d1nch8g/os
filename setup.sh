@@ -45,6 +45,7 @@ code --install-extension mhutchie.git-graph &
 code --install-extension rangav.vscode-thunder-client &
 code --install-extension zxh404.vscode-proto3 &
 code --install-extension Dart-Code.flutter &
+code --install-extension IronGeek.vscode-env &
 code --install-extension svelte.svelte-vscode
 
 cd ~
