@@ -1,6 +1,14 @@
 git config --global push.followTags true
 git config --global credential.helper store
 
+echo 'Enter user name for git:'
+read user
+git config --global user.name $user
+
+echo 'Enter user email for git:'
+read email
+git config --global user.email $email
+
 cp ~/os/pes.png ~/.face
 
 yay -Sy --needed --noconfirm cmake clang visual-studio-code-bin docker chromium nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja docker-compose appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
