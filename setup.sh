@@ -3,7 +3,7 @@ git config --global credential.helper store
 
 cp ~/os/pes.png ~/.face
 
-yay -Sy --needed --noconfirm cmake clang visual-studio-code-bin docker telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
+yay -Sy --needed --noconfirm cmake clang visual-studio-code-bin docker chromium nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja docker-compose appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
 echo 'export GOPATH=$HOME/go' >> ~/.zshrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
