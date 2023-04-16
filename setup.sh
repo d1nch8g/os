@@ -1,6 +1,8 @@
 git config --global push.followTags true
 git config --global credential.helper store
 
+cp ~/os/pes.png ~/.face
+
 yay -Sy --needed --noconfirm cmake clang visual-studio-code-bin docker telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
 echo 'export GOPATH=$HOME/go' >> ~/.zshrc
