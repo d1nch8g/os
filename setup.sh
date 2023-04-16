@@ -29,7 +29,8 @@ go install golang.org/x/tools/gopls@latest
 
 systemctl start docker.service
 systemctl enable docker.service
-usermod -aG docker $USER
+sudo groupadd docker
+sudo usermod -aG docker $USER
 
 code --install-extension dancheg97.grpc-clicker &
 code --install-extension esbenp.prettier-vscode &
