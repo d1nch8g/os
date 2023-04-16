@@ -7,8 +7,6 @@ echo 'export GOPATH=$HOME/go' >> ~/.zshrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
 echo 'export PATH=$PATH:$HOME/.pub-cache/bin' >> ~/.zshrc
 
-dart pub global activate protoc_plugin
-
 git config --global --add safe.directory /opt/flutter
 sudo chmod a+rwx -R /opt/flutter
 
@@ -16,6 +14,8 @@ nativefier --name kuma https://up.fmnx.ru
 cp ~/os/kuma.desktop ~/.local/share/applications/kuma.desktop
 nativefier --name drone https://ci.fmnx.ru
 cp ~/os/drone.desktop ~/.local/share/applications/drone.desktop
+
+dart pub global activate protoc_plugin
 
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
