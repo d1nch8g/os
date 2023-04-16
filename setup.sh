@@ -3,9 +3,9 @@ git config --global credential.helper store
 
 yay -Sy --needed --noconfirm cmake clang visual-studio-code-bin docker telegram-desktop chromium yandex-music-player nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
-echo 'export GOPATH=$HOME/go' >> ~/.bashrc
-echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
-echo 'export PATH=$PATH:$HOME/.pub-cache/bin' >> ~/.bashrc
+echo 'export GOPATH=$HOME/go' >> ~/.zshrc
+echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
+echo 'export PATH=$PATH:$HOME/.pub-cache/bin' >> ~/.zshrc
 
 dart pub global activate protoc_plugin
 
