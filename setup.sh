@@ -9,7 +9,7 @@ echo 'Enter user email for git:'
 read email
 git config --global user.email $email
 
-cp ~/os/pes.png ~/.face
+cp ~/fmnxdev/pes.png ~/.face
 
 yay -Sy --needed --noconfirm cmake clang visual-studio-code-bin docker chromium nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja docker-compose appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
@@ -21,9 +21,9 @@ git config --global --add safe.directory /opt/flutter
 sudo chmod a+rwx -R /opt/flutter
 
 nativefier --name kuma https://up.fmnx.ru
-cp ~/os/kuma.desktop ~/.local/share/applications/kuma.desktop
+cp ~/fmnxdev/kuma.desktop ~/.local/share/applications/kuma.desktop
 nativefier --name drone https://ci.fmnx.ru
-cp ~/os/drone.desktop ~/.local/share/applications/drone.desktop
+cp ~/fmnxdev/drone.desktop ~/.local/share/applications/drone.desktop
 
 dart pub global activate protoc_plugin
 
@@ -59,17 +59,14 @@ code --install-extension IronGeek.vscode-env &
 code --install-extension svelte.svelte-vscode
 
 cd ~
-git clone https://fmnx.ru/dancheg97/os
-git clone https://fmnx.ru/dancheg97/ctrlos
 git clone https://fmnx.ru/dancheg97/grpclicker_vscode
 git clone https://fmnx.ru/dancheg97/fmnxpkg
 git clone https://fmnx.ru/dancheg97/fmnx
 git clone https://fmnx.ru/dancheg97/fmnx-install
 wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
-cd os
 
-cp settings.json ~/.config/Code/User/settings.json
-cp keybindings.json ~/.config/Code/User/keybindings.json
+cp ~/fmnxdev/settings.json ~/.config/Code/User/settings.json
+cp ~/fmnxdev/keybindings.json ~/.config/Code/User/keybindings.json
 
 sed -i 's|LAMODA|FOZZY|g' ~/.config/chromium/Default/Preferences
 sed -i 's|www.lamoda.ru|accounts.fozzy.com/clientarea.php|g' ~/.config/chromium/Default/Preferences

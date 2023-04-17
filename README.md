@@ -7,7 +7,7 @@
 Get all the environment prepared for full-stack FMNX development in a single command right after installation.
 
 ```sh
-cd ~ && git clone https://fmnx.ru/dancheg97/fmnxdev && cd os && sh setup.sh
+cd ~ && git clone https://fmnx.ru/dancheg97/fmnxdev && cd fmnxdev && sh setup.sh
 ```
 
 This development stack contains:

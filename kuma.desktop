@@ -2,7 +2,7 @@
 Name=Uptime Kuma
 GenericName=Monitoring service
 Comment=Uptime Kuma
-Exec=/home/dancheg97/os/kuma-linux-x64/kuma
-Icon=/home/dancheg97/os/kuma.png
+Exec=/home/dancheg97/fmnxdev/kuma-linux-x64/kuma
+Icon=/home/dancheg97/fmnxdev/kuma.png
 Type=Application
 StartupNotify=true
