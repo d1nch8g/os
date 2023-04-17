@@ -21,9 +21,9 @@ git config --global --add safe.directory /opt/flutter
 sudo chmod a+rwx -R /opt/flutter
 
 nativefier --name kuma https://up.fmnx.ru
-cp ~/fmnxdev/kuma.desktop ~/.local/share/applications/kuma.desktop
+cp ~/fmnxdev/kuma-nativefier-d323dc.desktop ~/.local/share/applications/kuma-nativefier-d323dc.desktop
 nativefier --name drone https://ci.fmnx.ru
-cp ~/fmnxdev/drone.desktop ~/.local/share/applications/drone.desktop
+cp ~/fmnxdev/kuma-nativefier-d323dc.desktop ~/.local/share/applications/kuma-nativefier-d323dc.desktop
 
 dart pub global activate protoc_plugin
 
