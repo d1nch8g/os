@@ -2,7 +2,7 @@
 Name=Drone CI
 GenericName=Drone CI
 Comment=CI processes web app
-Exec=/home/dancheg97/fmnxdev/drone-linux-x64/drone
-Icon=/home/dancheg97/fmnxdev/drone.png
+Exec=/home/dancheg97/fmnx-dev/drone-linux-x64/drone
+Icon=/home/dancheg97/fmnx-dev/drone.png
 Type=Application
 StartupNotify=true
