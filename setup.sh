@@ -36,7 +36,7 @@ go install github.com/haya14busa/goplay/cmd/goplay@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 go install golang.org/x/tools/gopls@latest
-go install fmnx.ru/dancheg97/gen-tools@latest
+go install fmnx.ru/dancheg97/fmnx-gen@latest
 
 systemctl start docker.service
 systemctl enable docker.service
