@@ -1,4 +1,3 @@
-cp ~/fmnx-dev/pes.png ~/.face
 yay -Sy --needed --noconfirm buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
 sudo chmod a+rwx -R /opt/flutter
