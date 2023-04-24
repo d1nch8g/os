@@ -1,31 +1,13 @@
-git config --global push.followTags true
-git config --global credential.helper store
-
-echo 'Enter user name for git:'
-read user
-git config --global user.name $user
-
-echo 'Enter user email for git:'
-read email
-git config --global user.email $email
-
 cp ~/fmnx-dev/pes.png ~/.face
+yay -Sy --needed --noconfirm nodejs-nativefier buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
-yay -Sy --needed --noconfirm cmake clang visual-studio-code-bin docker chromium nodejs-nativefier flutter buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja docker-compose appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
-
-echo 'export GOPATH=$HOME/go' >> ~/.zshrc
-echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
-echo 'export PATH=$PATH:$HOME/.pub-cache/bin' >> ~/.zshrc
-
-git config --global --add safe.directory /opt/flutter
 sudo chmod a+rwx -R /opt/flutter
+dart pub global activate protoc_plugin
 
 nativefier --name kuma https://up.fmnx.ru
 cp ~/fmnx-dev/kuma-nativefier-d323dc.desktop ~/.local/share/applications/kuma-nativefier-d323dc.desktop
 nativefier --name drone https://ci.fmnx.ru
 cp ~/fmnx-dev/kuma-nativefier-d323dc.desktop ~/.local/share/applications/kuma-nativefier-d323dc.desktop
-
-dart pub global activate protoc_plugin
 
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
@@ -71,18 +53,3 @@ wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-
 
 cp ~/fmnx-dev/settings.json ~/.config/Code/User/settings.json
 cp ~/fmnx-dev/keybindings.json ~/.config/Code/User/keybindings.json
-
-sed -i 's|LAMODA|FOZZY|g' ~/.config/chromium/Default/Preferences
-sed -i 's|www.lamoda.ru|accounts.fozzy.com/clientarea.php|g' ~/.config/chromium/Default/Preferences
-
-sed -i 's|VK|FLATICON|g' ~/.config/chromium/Default/Preferences
-sed -i 's|vk.com|www.flaticon.com/ru|g' ~/.config/chromium/Default/Preferences
-
-sed -i 's|TINKOFF|FMNX|g' ~/.config/chromium/Default/Preferences
-sed -i 's|www.tinkoff.ru|fmnx.ru|g' ~/.config/chromium/Default/Preferences
-
-sed -i 's|Y-DISK|SVGREPO|g' ~/.config/chromium/Default/Preferences
-sed -i 's|disk.yandex.com|svgrepo.com|g' ~/.config/chromium/Default/Preferences
-
-sed -i 's|Y-TRAVEL|GITHUB|g' ~/.config/chromium/Default/Preferences
-sed -i 's|travel.yandex.ru|github.com|g' ~/.config/chromium/Default/Preferences
