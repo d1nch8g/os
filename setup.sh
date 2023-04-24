@@ -1,13 +1,8 @@
 cp ~/fmnx-dev/pes.png ~/.face
-yay -Sy --needed --noconfirm nodejs-nativefier buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
+yay -Sy --needed --noconfirm buf-bin golangci-lint-bin protoc-gen-go-grpc meson ninja appimagelauncher qemu-desktop edk2-ovmf archiso archinstall
 
 sudo chmod a+rwx -R /opt/flutter
 dart pub global activate protoc_plugin
-
-nativefier --name kuma https://up.fmnx.ru
-cp ~/fmnx-dev/kuma-nativefier-d323dc.desktop ~/.local/share/applications/kuma-nativefier-d323dc.desktop
-nativefier --name drone https://ci.fmnx.ru
-cp ~/fmnx-dev/kuma-nativefier-d323dc.desktop ~/.local/share/applications/kuma-nativefier-d323dc.desktop
 
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
@@ -50,6 +45,3 @@ git clone https://fmnx.ru/dancheg97/fmnx-install
 git clone https://fmnx.ru/dancheg97/fmnx-server
 git clone https://fmnx.ru/dancheg97/fmnx-gen
 wget https://github.com/balena-io/etcher/releases/download/v1.13.1/balenaEtcher-1.13.1-x64.AppImage
-
-cp ~/fmnx-dev/settings.json ~/.config/Code/User/settings.json
-cp ~/fmnx-dev/keybindings.json ~/.config/Code/User/keybindings.json
