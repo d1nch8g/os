@@ -7,7 +7,7 @@
 Get all the environment prepared for full-stack FMNX development in a single command right after installation.
 
 ```sh
-cd ~ && git clone https://fmnx.ru/dancheg97/fmnx-dev && cd fmnx-dev && sh setup.sh
+cd ~ && git clone https://fmnx.ru/dancheg97/os && cd os && sh setup.sh
 ```
 
 This development stack contains:
@@ -28,4 +28,5 @@ All this tools will be installed in a single command, just run it once after a f
 <!--
 Also those gnome extensions might be suitable:
 
-1. [Current screen](https://extensions.gnome.org/extension/1437/current-screen-only-for-alternate-tab/) -->
+1. [Current screen](https://extensions.gnome.org/extension/1437/current-screen-only-for-alternate-tab/) 
+-->
