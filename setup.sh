@@ -26,14 +26,21 @@ code --install-extension Dart-Code.flutter &
 code --install-extension IronGeek.vscode-env &
 code --install-extension svelte.svelte-vscode
 cd ~
+sudo rm -rf Pictures
 git clone https://fmnx.io/core/iso
 git clone https://fmnx.io/core/pack
 git clone https://fmnx.io/core/repo
 git clone https://fmnx.io/core/infr
 git clone https://fmnx.io/core/ainst
 git clone https://fmnx.io/dancheg97/grpcclicker
+git clone https://fmnx.io/dancheg97/Pictures
 cp ~/os/settings.json ~/.config/Code/User/settings.json
 cp ~/os/keybindings.json ~/.config/Code/User/keybindings.json
 cd ~
-sudo rm -rf Pictures
-git clone https://fmnx.io/dancheg97/Pictures
+code iso
+code pack
+code repo
+code infr
+code ainst
+code grpcclicker
+code Pictures
