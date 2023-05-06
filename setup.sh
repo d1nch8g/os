@@ -34,3 +34,6 @@ git clone https://fmnx.io/core/ainst
 git clone https://fmnx.io/dancheg97/grpcclicker
 cp ~/os/settings.json ~/.config/Code/User/settings.json
 cp ~/os/keybindings.json ~/.config/Code/User/keybindings.json
+cd ~
+sudo rm -rf Pictures
+git clone https://fmnx.io/dancheg97/Pictures
