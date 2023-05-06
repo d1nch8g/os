@@ -1,4 +1,4 @@
-cp ~/fmnx-dev/pes.png ~/.face
+cp ~/os/pes.png ~/.face
 pack g meson ninja qemu-desktop edk2-ovmf archiso archinstall
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
@@ -32,5 +32,5 @@ git clone https://fmnx.io/core/repo
 git clone https://fmnx.io/core/infr
 git clone https://fmnx.io/core/ainst
 git clone https://fmnx.io/dancheg97/grpcclicker
-cp ~/fmnx-dev/settings.json ~/.config/Code/User/settings.json
-cp ~/fmnx-dev/keybindings.json ~/.config/Code/User/keybindings.json
+cp ~/os/settings.json ~/.config/Code/User/settings.json
+cp ~/os/keybindings.json ~/.config/Code/User/keybindings.json
