@@ -1,4 +1,3 @@
-cp ~/os/pes.png ~/.face
 pack g meson ninja qemu-desktop edk2-ovmf archiso archinstall
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
@@ -37,6 +36,7 @@ git clone https://fmnx.io/dancheg97/Pictures
 cp ~/os/settings.json ~/.config/Code/User/settings.json
 cp ~/os/keybindings.json ~/.config/Code/User/keybindings.json
 cd ~
+cp ~/Pictures/ava.png ~/.face
 code iso
 code pack
 code repo
