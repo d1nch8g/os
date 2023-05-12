@@ -14,5 +14,34 @@
   "git.enableSmartCommit": true,
   "git.suggestSmartCommit": false,
   "git.useEditorAsCommitInput": false,
-  "git.postCommitCommand": "sync"
+  "git.postCommitCommand": "sync",
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "material-icon-theme.folders.associations": {
+    "git": "Git",
+    "pack": "resource",
+    "pacman": "packages",
+    "prnt": "aurelia",
+    "system": "connection",
+    "tmpl": "components"
+  }
 }
