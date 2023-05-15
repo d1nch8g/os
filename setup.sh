@@ -1,4 +1,4 @@
-pack g meson ninja qemu-desktop edk2-ovmf archiso archinstall
+pack i meson ninja qemu-desktop edk2-ovmf archiso archinstall
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
 go install github.com/cweill/gotests/gotests@latest
@@ -26,13 +26,13 @@ code --install-extension IronGeek.vscode-env &
 code --install-extension svelte.svelte-vscode
 cd ~
 sudo rm -rf Pictures
-git clone https://fmnx.io/core/iso
-git clone https://fmnx.io/core/pack
-git clone https://fmnx.io/core/repo
-git clone https://fmnx.io/core/infr
-git clone https://fmnx.io/core/ainst
-git clone https://fmnx.io/dancheg97/grpcclicker
-git clone https://fmnx.io/dancheg97/Pictures
+git clone https://fmnx.su/core/iso
+git clone https://fmnx.su/core/pack
+git clone https://fmnx.su/core/repo
+git clone https://fmnx.su/core/infr
+git clone https://fmnx.su/core/ainst
+git clone https://fmnx.su/dancheg97/grpcclicker
+git clone https://fmnx.su/dancheg97/Pictures
 cp ~/os/settings.json ~/.config/Code/User/settings.json
 cp ~/os/keybindings.json ~/.config/Code/User/keybindings.json
 cd ~
