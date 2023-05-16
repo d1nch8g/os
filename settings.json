@@ -42,6 +42,13 @@
     "pacman": "packages",
     "prnt": "aurelia",
     "system": "connection",
-    "tmpl": "components"
+    "tmpl": "components",
+    "ainst": "changesets",
+    "repo": "batch",
+    "infr": "docker",
+    "iso": "core"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
