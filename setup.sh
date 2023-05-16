@@ -36,7 +36,7 @@ git clone https://fmnx.su/dancheg97/Pictures
 cp ~/os/settings.json ~/.config/Code/User/settings.json
 cp ~/os/keybindings.json ~/.config/Code/User/keybindings.json
 cd ~
-cp ~/Pictures/ava.png ~/.face
+cp ~/os/ava.jpeg ~/.face
 code iso
 code pack
 code repo
