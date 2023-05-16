@@ -46,7 +46,9 @@
     "ainst": "changesets",
     "repo": "batch",
     "infr": "docker",
-    "iso": "core"
+    "iso": "core",
+    "os": "config",
+    "grpcclicker": "connection"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
