@@ -1,4 +1,5 @@
 pack i meson ninja qemu-desktop edk2-ovmf archiso archinstall
+echo 'alias code=vscodium' >> ~/.zshrc
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
 go install github.com/cweill/gotests/gotests@latest
@@ -8,14 +9,10 @@ go install github.com/haya14busa/goplay/cmd/goplay@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 go install golang.org/x/tools/gopls@latest
-go install fmnx.ru/dancheg97/fmnx-gen@latest
-code --install-extension dancheg97.grpc-clicker &
 code --install-extension esbenp.prettier-vscode &
 code --install-extension ms-azuretools.vscode-docker &
-code --install-extension ms-vscode-remote.remote-containers &
 code --install-extension PKief.material-icon-theme &
 code --install-extension ms-vscode-remote.remote-ssh &
-code --install-extension MS-vsliveshare.vsliveshare &
 code --install-extension redhat.vscode-yaml &
 code --install-extension golang.Go &
 code --install-extension mhutchie.git-graph &
@@ -31,10 +28,10 @@ git clone https://fmnx.su/core/pack
 git clone https://fmnx.su/core/repo
 git clone https://fmnx.su/core/infr
 git clone https://fmnx.su/core/ainst
-git clone https://fmnx.su/dancheg97/grpcclicker
-git clone https://fmnx.su/dancheg97/Pictures
-cp ~/os/settings.json ~/.config/Code/User/settings.json
-cp ~/os/keybindings.json ~/.config/Code/User/keybindings.json
+git clone https://fmnx.su/dancheg/grpcclicker
+git clone https://fmnx.su/dancheg/Pictures
+cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
+cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
 cd ~
 cp ~/os/ava.jpeg ~/.face
 code iso
