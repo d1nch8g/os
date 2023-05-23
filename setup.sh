@@ -21,7 +21,7 @@ code --install-extension rangav.vscode-thunder-client &
 code --install-extension zxh404.vscode-proto3 &
 code --install-extension Dart-Code.flutter &
 code --install-extension IronGeek.vscode-env &
-code --install-extension svelte.svelte-vscode
+code --install-extension jeanp413/open-remote-ssh
 cd ~
 sudo rm -rf Pictures
 git clone https://fmnx.su/core/iso
