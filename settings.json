@@ -17,6 +17,7 @@
   "git.postCommitCommand": "sync",
   "git.confirmSync": false,
   "git.autofetch": true,
+  "workbench.startupEditor": "none",
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
