@@ -1,5 +1,6 @@
 pack i meson ninja qemu-desktop edk2-ovmf archiso archinstall
 echo 'alias code=vscodium' >> ~/.zshrc
+alias code=vscodium
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
 go install github.com/cweill/gotests/gotests@latest
@@ -32,8 +33,8 @@ git clone https://fmnx.su/dancheg/grpcclicker
 git clone https://fmnx.su/dancheg/Pictures
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
-cd ~
 cp ~/os/ava.jpeg ~/.face
+cd ~
 code iso
 code pack
 code repo
