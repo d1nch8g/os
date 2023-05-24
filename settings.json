@@ -7,6 +7,7 @@
   "security.workspace.trust.startupPrompt": "never",
   "security.workspace.trust.enabled": false,
   "window.titleBarStyle": "custom",
+  "window.newWindowDimensions": "fullscreen",
   "redhat.telemetry.enabled": false,
   "editor.formatOnSave": true,
   "editor.cursorBlinking": "smooth",
