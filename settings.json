@@ -1,15 +1,18 @@
 {
   "editor.rulers": [80],
+  "workbench.statusBar.visible": false,
   "workbench.iconTheme": "material-icon-theme",
-  "redhat.telemetry.enabled": false,
-  "editor.cursorBlinking": "smooth",
-  "editor.formatOnSave": true,
-  "window.titleBarStyle": "custom",
-  "window.customMenuBarAltFocus": false,
+  "workbench.startupEditor": "none",
   "workbench.colorTheme": "Default Dark+",
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.startupPrompt": "never",
+  "security.workspace.trust.enabled": false,
+  "window.titleBarStyle": "custom",
+  "redhat.telemetry.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.cursorBlinking": "smooth",
   "extensions.ignoreRecommendations": true,
   "files.autoSave": "afterDelay",
-  "window.commandCenter": true,
   "explorer.confirmDelete": false,
   "git.enableSmartCommit": true,
   "git.suggestSmartCommit": false,
@@ -17,7 +20,6 @@
   "git.postCommitCommand": "sync",
   "git.confirmSync": false,
   "git.autofetch": true,
-  "workbench.startupEditor": "none",
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -37,6 +39,9 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "material-icon-theme.folders.associations": {
     "git": "Git",
     "pack": "resource",
@@ -50,8 +55,5 @@
     "iso": "core",
     "os": "config",
     "grpcclicker": "connection"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
