@@ -29,7 +29,7 @@ git clone https://fmnx.su/core/pack
 git clone https://fmnx.su/core/repo
 git clone https://fmnx.su/core/infr
 git clone https://fmnx.su/core/ainst
-git clone https://fmnx.su/dancheg97/grpcclicker
+git clone https://fmnx.su/dancheg97/grpc-clicker
 git clone https://fmnx.su/dancheg97/Pictures
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
@@ -40,5 +40,5 @@ code pack
 code repo
 code infr
 code ainst
-code grpcclicker
+code grpc-clicker
 code Pictures
