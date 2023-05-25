@@ -22,6 +22,7 @@ code --install-extension zxh404.vscode-proto3
 code --install-extension Dart-Code.flutter
 code --install-extension IronGeek.vscode-env
 code --install-extension jeanp413/open-remote-ssh
+code --install-extension Dancheg97/grpc-clicker
 cd ~
 sudo rm -rf Pictures
 git clone https://fmnx.su/core/iso
