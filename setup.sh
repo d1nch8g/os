@@ -1,4 +1,4 @@
-pack i meson ninja qemu-desktop edk2-ovmf archiso archinstall
+sudo pacman -Syu --noconfim meson ninja qemu-desktop edk2-ovmf archiso archinstall
 echo 'alias code=vscodium' >> ~/.zshrc
 alias code=vscodium
 go install github.com/ktr0731/evans@latest
