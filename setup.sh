@@ -10,6 +10,7 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 go install golang.org/x/tools/gopls@latest
 
+alias code=vscodium
 code --install-extension esbenp.prettier-vscode
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension PKief.material-icon-theme
