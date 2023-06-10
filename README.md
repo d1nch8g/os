@@ -7,24 +7,15 @@
 Get all the environment prepared for full-stack development in a single command right after installation.
 
 ```sh
-cd ~ && git clone https://fmnx.ru/dancheg97/os && cd os && sh setup.sh
+cd ~ && git clone https://fmnx.su/dancheg97/os && cd os && sh setup.sh
 ```
 
 This development stack contains:
 
-1. vscode and it's extensions+settings+keybindings
-2. go with some libraries
-3. dart & flutter & for linux+web development
-4. some docker containers
-5. arch linux dev tools for os development
-6. main FMNX dev repos
-7. protoc for go and dart
-8. another set of chromium links
+1. VSCodium extensions+settings+keybindings.
+2. Go with some libraries.
+3. Dart & flutter & for android+linux+web development.
+4. Arch linux dev tools for os development.
+5. Main FMNX dev repos.
 
 All this tools will be installed in a single command, just run it once after a fresh installation.
-
-<!--
-Also those gnome extensions might be suitable:
-
-1. [Current screen](https://extensions.gnome.org/extension/1437/current-screen-only-for-alternate-tab/)
--->
