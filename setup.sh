@@ -36,9 +36,9 @@ code --install-extension rangav.vscode-thunder-client
 code --install-extension zxh404.vscode-proto3
 code --install-extension Dart-Code.flutter
 code --install-extension IronGeek.vscode-env
-code --install-extension jeanp413/open-remote-ssh
-code --install-extension Dancheg97/grpc-clicker
-code --install-extension jeff-hykin/mario
+code --install-extension jeanp413.open-remote-ssh
+code --install-extension Dancheg97.grpc-clicker
+code --install-extension jeff-hykin.mario
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
 
