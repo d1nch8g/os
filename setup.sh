@@ -5,11 +5,9 @@ cp ~/os/ava.jpeg ~/.face
 pack -Syuq qemu-desktop edk2-ovmf archiso archinstall balena-etcher meson ninja qemu-desktop edk2-ovmf flutter go
 
 # Setting up flutter.
-cd /opt/flutter
-git init
-sudo chmod a+rwx -R /opt/flutter
-git config --global --add safe.directory /opt/flutter
-echo 'export PATH=$PATH:$HOME/.pub-cache/bin' >> ~/.zshrc
+cd ~
+git clone https://github.com/flutter/flutter
+echo 'export PATH="$PATH:$HOME/flutter/bin"' >> ~/.zshrc
 
 # Setting up go.
 echo 'export GOPATH=$HOME/go' >> ~/.zshrc
