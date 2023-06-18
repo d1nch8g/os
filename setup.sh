@@ -12,7 +12,7 @@ echo 'export PATH="$PATH:$HOME/flutter/bin"' >> ~/.zshrc
 # Setting up go.
 echo 'export GOPATH=$HOME/go' >> ~/.zshrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
-echo 'export PATH="$HOME/go/bin"' >> ~/.zshrc
+echo 'export PATH="$PATH:$HOME/go/bin"' >> ~/.zshrc
 
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
