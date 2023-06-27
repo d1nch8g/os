@@ -2,7 +2,7 @@
 cp ~/os/ava.jpeg ~/.face
 
 # Installing my sutff...
-pack -Syuq qemu-desktop edk2-ovmf archiso archinstall balena-etcher meson ninja qemu-desktop edk2-ovmf flutter go
+pack -Syuq qemu-desktop edk2-ovmf archiso archinstall meson ninja qemu-desktop balena-etcher edk2-ovmf go
 
 # Setting up flutter.
 cd ~
@@ -45,19 +45,14 @@ cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
 
 # Cloning main working repos.
 cd ~
-sudo rm -rf Pictures
 git clone https://fmnx.su/core/iso
 git clone https://fmnx.su/core/pack
-git clone https://fmnx.su/core/repo
 git clone https://fmnx.su/core/infr
 git clone https://fmnx.su/core/ainst
-git clone https://fmnx.su/dancheg97/grpc-clicker
 cd ~
 
 # Opening repos for VSCodium to memorize them for quick navigation.
 code iso
-code pack
 code repo
 code infr
 code ainst
-code grpc-clicker
