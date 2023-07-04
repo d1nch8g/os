@@ -18,5 +18,6 @@
   "git.useEditorAsCommitInput": false,
   "git.postCommitCommand": "sync",
   "git.confirmSync": false,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "sqltools.autoOpenSessionFiles": false
 }
