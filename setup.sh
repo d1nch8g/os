@@ -50,3 +50,7 @@ git clone https://fmnx.su/core/pack
 git clone https://fmnx.su/core/infr
 git clone https://fmnx.su/core/ainst
 cd ~
+
+# Set up vmware
+sudo modprobe -a vmw_vmci vmmon
+sudo systemctl start vmware-networks.service
