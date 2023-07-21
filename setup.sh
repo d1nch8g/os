@@ -50,9 +50,3 @@ git clone https://fmnx.su/core/pack
 git clone https://fmnx.su/core/infr
 git clone https://fmnx.su/core/ainst
 cd ~
-
-# Opening repos for VSCodium to memorize them for quick navigation.
-code iso
-code repo
-code infr
-code ainst
