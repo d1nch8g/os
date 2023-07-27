@@ -1,0 +1,12 @@
+cd ~
+cd pack
+make push
+cd ~
+cd iso
+make push
+cd ~
+cd infr
+make push
+cd ~
+cd ainst
+make push
