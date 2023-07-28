@@ -34,8 +34,8 @@ code --install-extension IronGeek.vscode-env
 code --install-extension golang.Go
 code --install-extension mhutchie.git-graph
 code --install-extension Dart-Code.flutter
-code --install-extension jeanp413.open-remote-ssh
 code --install-extension jeff-hykin.mario
+code --install-extension wdhongtw.gpg-indicator
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
 
