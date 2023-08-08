@@ -19,3 +19,8 @@ This development stack contains:
 5. Main FMNX dev repos.
 
 All this tools will be installed in a single command, just run it once after a fresh installation.
+
+<!--
+https://www.gnu.org/help/evaluation.html
+
+ -->
