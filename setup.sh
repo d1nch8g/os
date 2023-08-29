@@ -1,15 +1,6 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
-# Cloning main working repos.
-cd ~
-git clone https://fmnx.su/core/iso
-git clone https://fmnx.su/core/pack
-git clone https://fmnx.su/core/infr
-git clone https://fmnx.su/core/ainst
-git clone https://fmnx.su/dancheg97/notes
-cd ~
-
 # Installing my sutff...
 pack -Syuq qemu-desktop edk2-ovmf archiso archinstall meson ninja qemu-desktop edk2-ovmf go etcher-bin vmware-workstation
 
@@ -52,3 +43,12 @@ cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
 # Set up vmware
 sudo modprobe -a vmw_vmci vmmon
 sudo systemctl start vmware-networks.service
+
+# Cloning main working repos.
+cd ~
+git clone https://fmnx.su/core/iso
+git clone https://fmnx.su/core/pack
+git clone https://fmnx.su/core/infr
+git clone https://fmnx.su/core/ainst
+git clone https://fmnx.su/dancheg97/notes
+cd ~
