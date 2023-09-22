@@ -2,7 +2,7 @@
 cp ~/os/ava.jpeg ~/.face
 
 # Installing my sutff...
-pack -Syuq qemu-desktop edk2-ovmf archiso archinstall meson ninja qemu-desktop edk2-ovmf go etcher-bin vmware-workstation
+pack -Syuq archiso archinstall meson ninja go flutter rustup gnome-boxes etcher-bin
 
 # Setting up flutter.
 cd ~
