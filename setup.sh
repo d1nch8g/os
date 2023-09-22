@@ -30,12 +30,15 @@ code --install-extension PKief.material-icon-theme
 code --install-extension esbenp.prettier-vscode
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension redhat.vscode-yaml
+code --install-extension mhutchie.git-graph
+code --install-extension jeff-hykin.mario
 code --install-extension IronGeek.vscode-env
 code --install-extension golang.Go
-code --install-extension mhutchie.git-graph
 code --install-extension Dart-Code.flutter
-code --install-extension jeff-hykin.mario
 code --install-extension wdhongtw.gpg-indicator
+code --install-extension bungcip.better-toml
+code --install-extension rust-lang.rust
+code --install-extension rust-lang.rust-analyzer
 
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
