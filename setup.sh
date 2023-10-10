@@ -51,6 +51,27 @@ sudo systemctl start vmware-networks.service
 git clone https://github.com/d1nch8g/
 
 cd ~
+git clone https://ion.lc/d1nch8g/os
+git clone https://ion.lc/d1nch8g/iso
+git clone https://ion.lc/d1nch8g/ainst
+git clone https://ion.lc/d1nch8g/pack
+git clone https://ion.lc/d1nch8g/pacman
+git clone https://ion.lc/d1nch8g/help
+git clone https://ion.lc/d1nch8g/articles
+git clone https://ion.lc/d1nch8g/grpc-clicker
+
+cd ~
+mkdir ion_archive
+git clone https://ion.lc/d1nch8g/timemocks
+git clone https://ion.lc/d1nch8g/pkg-tests
+git clone https://ion.lc/d1nch8g/package
+git clone https://ion.lc/d1nch8g/bigflag
+git clone https://ion.lc/d1nch8g/repo
+git clone https://ion.lc/d1nch8g/registry
+git clone https://ion.lc/d1nch8g/go-reflect
+git clone https://ion.lc/d1nch8g/testrepo
+
+cd ~
 mkdir github_archive
 cd github_archive
 git clone https://github.com/d1nch8g/flow-case
@@ -101,24 +122,3 @@ git clone https://github.com/d1nch8g/gRPC_api_example
 git clone https://github.com/d1nch8g/test_grpc_call_page
 git clone https://github.com/d1nch8g/svelte_new_project_tests
 git clone https://github.com/d1nch8g/flow-case
-
-cd ~
-mkdir ion_archive
-git clone https://ion.lc/d1nch8g/timemocks
-git clone https://ion.lc/d1nch8g/pkg-tests
-git clone https://ion.lc/d1nch8g/package
-git clone https://ion.lc/d1nch8g/bigflag
-git clone https://ion.lc/d1nch8g/repo
-git clone https://ion.lc/d1nch8g/registry
-git clone https://ion.lc/d1nch8g/go-reflect
-git clone https://ion.lc/d1nch8g/testrepo
-
-cd ~
-git clone https://ion.lc/d1nch8g/os
-git clone https://ion.lc/d1nch8g/iso
-git clone https://ion.lc/d1nch8g/ainst
-git clone https://ion.lc/d1nch8g/pack
-git clone https://ion.lc/d1nch8g/pacman
-git clone https://ion.lc/d1nch8g/help
-git clone https://ion.lc/d1nch8g/articles
-git clone https://ion.lc/d1nch8g/grpc-clicker
