@@ -12,13 +12,12 @@ cd ~ && git clone https://ion.lc/d1nch8g/os && cd os && sh setup.sh
 
 This development stack contains:
 
+1. Go with some libraries.
 1. VSCodium extensions+settings+keybindings.
-2. Go with some libraries.
-3. Dart & flutter & for android+linux+web development.
-4. Arch linux dev tools for os development.
-5. Main FMNX dev repos.
+1. Dart & flutter & for android+linux+web development.
+1. Arch linux tools for os development.
 
-All this tools will be installed in a single command, just run it once after a fresh installation.
+Second command will clone all repositories which i store locally on my computers.
 
 ```sh
 cd ~ && git clone https://ion.lc/d1nch8g/os && cd os && sh repos.sh

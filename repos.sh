@@ -12,6 +12,7 @@ git clone https://ion.lc/d1nch8g/grpc-clicker
 
 cd ~
 mkdir ion_archive
+cd ion_archive
 git clone https://ion.lc/d1nch8g/timemocks
 git clone https://ion.lc/d1nch8g/pkg-tests
 git clone https://ion.lc/d1nch8g/package
@@ -24,7 +25,6 @@ git clone https://ion.lc/d1nch8g/testrepo
 cd ~
 mkdir github_archive
 cd github_archive
-git clone https://github.com/d1nch8g/flow-case
 git clone https://github.com/d1nch8g/learn_typescript
 git clone https://github.com/d1nch8g/learn_ts
 git clone https://github.com/d1nch8g/grpcclicker_flutter

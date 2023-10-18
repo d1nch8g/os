@@ -20,6 +20,11 @@
   "git.useEditorAsCommitInput": false,
   "git.postCommitCommand": "sync",
   "git.confirmSync": false,
-  "git.autofetch": true,
-  "sqltools.autoOpenSessionFiles": false
+  "dart.flutterSdkPath": "/opt/flutter",
+  "sqltools.autoOpenSessionFiles": false,
+  "window.commandCenter": false,
+  "breadcrumbs.enabled": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

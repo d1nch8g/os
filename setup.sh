@@ -2,7 +2,8 @@
 cp ~/os/ava.jpeg ~/.face
 
 # Installing my sutff...
-pack -Syuq flutter archiso archinstall meson ninja go flutter rustup gnome-boxes etcher-bin
+tab -Syuq archiso archinstall meson ninja go
+tab -Syuq etcher-bin flutter flutter rustup gnome-boxes
 
 # Setting up flutter.
 echo 'export PATH="$PATH:$HOME/flutter/bin"' >> ~/.zshrc
@@ -35,8 +36,6 @@ code --install-extension golang.Go
 code --install-extension Dart-Code.flutter
 code --install-extension wdhongtw.gpg-indicator
 code --install-extension bungcip.better-toml
-code --install-extension rust-lang.rust
-code --install-extension rust-lang.rust-analyzer
 
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
