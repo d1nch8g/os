@@ -1,10 +1,9 @@
 # Cloning all my repositories working repos.
 
 cd ~
-git clone https://ion.lc/d1nch8g/os
 git clone https://ion.lc/d1nch8g/iso
 git clone https://ion.lc/d1nch8g/ainst
-git clone https://ion.lc/d1nch8g/pack
+git clone https://ion.lc/d1nch8g/tab
 git clone https://ion.lc/d1nch8g/pacman
 git clone https://ion.lc/d1nch8g/help
 git clone https://ion.lc/d1nch8g/articles
