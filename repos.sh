@@ -1,9 +1,11 @@
 # Cloning all my repositories working repos.
 
 cd ~
-git clone https://ion.lc/d1nch8g/iso
-git clone https://ion.lc/d1nch8g/ainst
-git clone https://ion.lc/d1nch8g/tab
+git clone https://ion.lc/core/iso
+git clone https://ion.lc/core/ainst
+git clone https://ion.lc/core/tab
+git clone https://ion.lc/core/infr
+git clone https://ion.lc/core/gitea
 git clone https://ion.lc/d1nch8g/pacman
 git clone https://ion.lc/d1nch8g/help
 git clone https://ion.lc/d1nch8g/articles
@@ -47,7 +49,6 @@ git clone https://github.com/d1nch8g/nw_auc_checker
 git clone https://github.com/d1nch8g/sync_tree_mobile
 git clone https://github.com/d1nch8g/sync_tree_mobile_logic
 git clone https://github.com/d1nch8g/crypto_export
-git clone https://github.com/d1nch8g/gitea
 git clone https://github.com/d1nch8g/infr
 git clone https://github.com/d1nch8g/iso
 git clone https://github.com/d1nch8g/ainst

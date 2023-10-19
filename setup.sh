@@ -34,7 +34,6 @@ code --install-extension jeff-hykin.mario
 code --install-extension IronGeek.vscode-env
 code --install-extension golang.Go
 code --install-extension Dart-Code.flutter
-code --install-extension wdhongtw.gpg-indicator
 code --install-extension bungcip.better-toml
 
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
