@@ -20,5 +20,5 @@ This development stack contains:
 Second command will clone all repositories which i store locally on my computers.
 
 ```sh
-cd ~ && git clone https://ion.lc/d1nch8g/os && cd os && sh repos.sh
+cd ~ && cd os && sh repos.sh
 ```
