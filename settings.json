@@ -9,6 +9,7 @@
   "window.newWindowDimensions": "fullscreen",
   "window.restoreFullscreen": true,
   "redhat.telemetry.enabled": false,
+  "window.customMenuBarAltFocus": false,
   "editor.formatOnSave": true,
   "editor.cursorBlinking": "smooth",
   "extensions.ignoreRecommendations": true,
