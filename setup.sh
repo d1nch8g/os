@@ -2,8 +2,7 @@
 cp ~/os/ava.jpeg ~/.face
 
 # Installing my sutff...
-tab -Syuq archiso archinstall meson ninja go
-tab -Syuq etcher-bin flutter flutter rustup gnome-boxes
+tab -Syuq archiso meson ninja go flutter rustup gnome-boxes
 
 # Setting up flutter.
 echo 'export PATH="$PATH:$HOME/flutter/bin"' >> ~/.zshrc
