@@ -38,3 +38,11 @@ code --install-extension bungcip.better-toml
 
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
+
+echo "##############################################"
+echo "##                                          ##"
+echo "##      Downloading repositories...         ##"
+echo "##                                          ##"
+echo "##############################################"
+
+sh ~/os/repos.sh
