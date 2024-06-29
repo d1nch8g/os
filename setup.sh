@@ -1,6 +1,9 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
+tab -Bqs aur.archlinux.org/adw-gtk3
+tab -Bqs aur.archlinux.org/gnome-shell-extension-dash-to-dock
+
 # Installing my sutff...
 tab -Syu archiso meson ninja go gnome-boxes
 tab -Syu flutter rust
@@ -38,11 +41,3 @@ code --install-extension bungcip.better-toml
 
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
-
-echo "##############################################"
-echo "##                                          ##"
-echo "##      Downloading repositories...         ##"
-echo "##                                          ##"
-echo "##############################################"
-
-sh ~/os/repos.sh
