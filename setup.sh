@@ -1,12 +1,14 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
-tab -Bqs aur.archlinux.org/adw-gtk3
-tab -Bqs aur.archlinux.org/gnome-shell-extension-dash-to-dock
+sudo pacman -Syu 
 
-# Installing my sutff...
-tab -Syu archiso meson ninja go gnome-boxes
-tab -Syu flutter rust
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+yay -Sy vscodium brave-bin
 
 # Setting up flutter.
 echo 'export PATH="$PATH:$HOME/flutter/bin"' >> ~/.zshrc
@@ -41,3 +43,8 @@ code --install-extension bungcip.better-toml
 
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
+
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['']"                 06:42:21 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['']"
+
+yay -Syu
