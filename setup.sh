@@ -1,7 +1,9 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Syu 
+sudo pacman -Syu go docker zsh git nodejs npm 
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
@@ -49,5 +51,3 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['']"
 
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
-
-yay -Syu
