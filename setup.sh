@@ -4,6 +4,9 @@ cp ~/os/ava.jpeg ~/.face
 sudo pacman -Syu go docker zsh git nodejs npm 
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+sed -i '/ZSH_THEME="robbyrussell"/d' ~/.zshrc
+echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
 
 pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
