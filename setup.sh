@@ -5,8 +5,7 @@ sudo pacman -Syu go docker zsh git nodejs npm
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-sed -i '/ZSH_THEME="robbyrussell"/d' ~/.zshrc
-echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
+sed -i 's|robbyrussell|powerlevel10k/powerlevel10k|g' ~/.zshrc
 
 pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
@@ -23,6 +22,9 @@ echo 'export GOPATH=$HOME/go' >> ~/.zshrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
 echo 'export PATH="$PATH:$HOME/go/bin"' >> ~/.zshrc
 
+# Setting up VSCodium.
+echo 'alias code=vscodium' >> ~/.zshrc
+
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
 go install github.com/cweill/gotests/gotests@latest
@@ -33,8 +35,6 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 go install golang.org/x/tools/gopls@latest
 
-# Setting up VSCodium.
-alias code=vscodium
 code --install-extension PKief.material-icon-theme
 code --install-extension esbenp.prettier-vscode
 code --install-extension ms-azuretools.vscode-docker
@@ -54,3 +54,5 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['']"
 
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+
+p10k configure
