@@ -44,7 +44,7 @@ code --install-extension bungcip.better-toml
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
 
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['']"                 06:42:21 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['']"
 
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
