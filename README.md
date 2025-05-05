@@ -7,7 +7,7 @@
 Get all the environment prepared for full-stack development in a single command right after installation.
 
 ```sh
-cd ~ && git clone https://ion.lc/d1nch8g/os && cd os && sh setup.sh
+cd ~ && git clone https://github.com/d1nch8g/os && cd os && sh setup.sh
 ```
 
 This development stack contains:
