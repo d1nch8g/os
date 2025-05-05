@@ -1,7 +1,7 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Syu --needed go docker zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary
+sudo pacman -Syu --needed go docker zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions
 
 git config --global user.name "d1nch8g"
 git config --global user.email "d1nch8g@gmail.com"
@@ -63,9 +63,10 @@ cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sed -i 's|robbyrussell|powerlevel10k/powerlevel10k|g' ~/.zshrc
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-echo "newgrp docker" >> ~/.zshrc
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
+echo "source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+
 sudo groupadd docker
 sudo usermod -aG docker $USER
