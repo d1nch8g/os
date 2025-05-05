@@ -1,7 +1,7 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Syu --needed go docker zsh git nodejs npm gnome-keyring
+sudo pacman -Syu --needed go docker zsh git nodejs npm gnome-keyring papirus-icon-theme
 
 git config --global user.name "d1nch8g"
 git config --global user.email "d1nch8g@gmail.com"
@@ -52,6 +52,12 @@ gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<
 
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
+
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
 
 cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
