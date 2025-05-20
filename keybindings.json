@@ -159,5 +159,15 @@
   {
     "key": "alt+9",
     "command": "-workbench.action.openEditorAtIndex9"
+  },
+  {
+    "key": "ctrl+shift+q",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "cody.chat.newEditorPanel",
+        "workbench.action.editorLayoutSingle"
+      ]
+    }
   }
 ]
