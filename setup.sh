@@ -1,7 +1,7 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Syu --needed go docker zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions
+sudo pacman -Syu --needed go docker zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions p7zip
 
 git config --global user.name "d1nch8g"
 git config --global user.email "d1nch8g@gmail.com"
@@ -19,7 +19,7 @@ echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
 echo 'export PATH="$PATH:$HOME/go/bin"' >> ~/.zshrc
 
 # Setting up VSCodium.
-echo 'alias code=vscodium' >> ~/.zshrc
+# (alias will be set via preconfigured .zshrc)
 
 go install github.com/ktr0731/evans@latest
 go install mvdan.cc/gofumpt@latest
@@ -59,14 +59,36 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
 
-cd ~
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-sed -i 's|robbyrussell|powerlevel10k/powerlevel10k|g' ~/.zshrc
+# Set wallpaper
+gsettings set org.gnome.desktop.background picture-uri "file://$HOME/os/wallpaper.jpg"
+gsettings set org.gnome.desktop.background picture-uri-dark "file://$HOME/os/wallpaper.jpg"
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
-echo "source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+cd ~
+# Install Oh My Zsh non-interactively
+RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install Powerlevel10k theme
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Install zsh plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Install preconfigured zsh files
+cp ~/os/.zshrc ~/
+cp ~/os/.p10k.zsh ~/
+
+# Change default shell to zsh
+chsh -s $(which zsh)
+
+# OpenVPN setup
+echo "Enter archive password for VPN configs:"
+read -s vpn_password
+cd /etc/openvpn
+sudo 7z x ~/os/ovpn.zip -p"$vpn_password"
+
+# VPN alias for Belgium
+echo 'alias vpn="cd /etc/openvpn && sudo openvpn --config \"Belgium, Brussels S1.ovpn\""' >> ~/.zshrc
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
