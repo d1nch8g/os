@@ -1,7 +1,7 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Syu --needed go docker zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions p7zip
+sudo pacman -Syu --needed go docker zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions p7zip telegram-desktop
 
 git config --global user.name "d1nch8g"
 git config --global user.email "d1nch8g@gmail.com"
