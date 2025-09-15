@@ -51,6 +51,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications "['']"
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
