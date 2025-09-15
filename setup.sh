@@ -87,6 +87,8 @@ echo "Enter archive password for VPN configs:"
 read -s vpn_password
 cd /etc/openvpn
 sudo 7z x ~/os/ovpn.zip -p"$vpn_password"
+sudo mv ovpn/* .
+sudo rmdir ovpn
 
 # VPN alias for Belgium
 echo 'alias vpn="cd /etc/openvpn && sudo openvpn --config \"Belgium, Brussels S1.ovpn\""' >> ~/.zshrc
