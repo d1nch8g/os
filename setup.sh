@@ -96,4 +96,4 @@ echo 'alias vpn="cd /etc/openvpn && sudo openvpn --config \"Belgium, Brussels S1
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-yay -S mcpelauncher-ui
+yay -S mcpelauncher-ui gnome-shell-extension-dash-to-dock
