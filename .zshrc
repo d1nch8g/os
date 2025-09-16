@@ -113,11 +113,17 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Custom keybindings for VSCode-like arrow key behavior
+# Custom keybindings for VSCode-like behavior
 bindkey "^[[1;5C" forward-word      # Ctrl+Right Arrow
 bindkey "^[[1;5D" backward-word     # Ctrl+Left Arrow
 bindkey "^[[C" forward-char         # Right Arrow
 bindkey "^[[D" backward-char        # Left Arrow
+bindkey "^H" backward-delete-word   # Ctrl+Backspace
+bindkey "^[[3;5~" delete-word       # Ctrl+Delete
+bindkey "^A" beginning-of-line      # Ctrl+A (Home)
+bindkey "^E" end-of-line           # Ctrl+E (End)
+bindkey "^K" kill-line             # Ctrl+K (delete to end of line)
+bindkey "^U" backward-kill-line    # Ctrl+U (delete to beginning of line)
 
 # Custom aliases
 alias code=vscodium
