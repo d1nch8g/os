@@ -6,15 +6,17 @@ sudo pacman -Syu --needed go docker docker-compose zsh git nodejs npm gnome-keyr
 git config --global user.name "d1nch8g"
 git config --global user.email "d1nch8g@gmail.com"
 
-pacman -S --needed base-devel
+sudo pacman -S --needed base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 
 yay -Sy vscodium brave-bin
 
 # Setting up go.
+echo 'export GOROOT=/usr/lib/go' >> ~/.zshrc
 echo 'export GOPATH=$HOME/go' >> ~/.zshrc
+echo 'export PATH=$PATH:/usr/lib/go/bin' >> ~/.zshrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
 echo 'export PATH="$PATH:$HOME/go/bin"' >> ~/.zshrc
 
