@@ -1,7 +1,7 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Syu --needed go docker docker-compose zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions p7zip telegram-desktop
+sudo pacman -Syu --needed go docker docker-compose zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions p7zip telegram-desktop protobuf
 
 git config --global user.name "d1nch8g"
 git config --global user.email "d1nch8g@gmail.com"
@@ -32,6 +32,8 @@ go install github.com/haya14busa/goplay/cmd/goplay@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 go install golang.org/x/tools/gopls@latest
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 vscodium --install-extension PKief.material-icon-theme
 vscodium --install-extension esbenp.prettier-vscode
