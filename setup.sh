@@ -1,7 +1,7 @@
 # Avatarka :D
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Syu --needed go docker docker-compose zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions p7zip telegram-desktop protobuf
+sudo pacman -Syu --needed go docker docker-compose zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions p7zip telegram-desktop protobuf zip
 
 git config --global user.name "d1nch8g"
 git config --global user.email "d1nch8g@gmail.com"
@@ -44,6 +44,7 @@ vscodium --install-extension jeff-hykin.mario
 vscodium --install-extension IronGeek.vscode-env
 vscodium --install-extension golang.Go
 vscodium --install-extension bungcip.better-toml
+vscodium --install-extension saoudrizwan.claude-dev
 
 cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
 cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
