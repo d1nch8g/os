@@ -1,7 +1,5 @@
 {
-  "editor.rulers": [
-    80
-  ],
+  "editor.rulers": [80],
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
   "security.workspace.trust.untrustedFiles": "open",
@@ -73,5 +71,6 @@
   "amp.experimental.reviewTool": true,
   "amp.dangerouslyAllowAll": true,
   "amp.summary.provider": "anthropic",
-  "amp.anthropic.thinking.enabled": false
+  "amp.anthropic.thinking.enabled": false,
+  "terminal.integrated.tabs.enabled": false
 }
