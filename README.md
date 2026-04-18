@@ -4,7 +4,7 @@
 
 <h2 align="center">d1nch8g os setup script</h2>
 
-Just clone and run setup.sh with no sudo on fresh manjaro instance.
+Just clone and run setup.sh with no sudo on fresh manjaro installation.
 
 ```sh
 bash setup.sh
