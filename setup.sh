@@ -4,10 +4,12 @@
 cp ~/os/ava.jpeg ~/.face
 
 sudo pacman -Rns gnome-layout-switcher gnome-user-docs manjaro-application-utility libpamac-flatpak-plugin pamac-gnome-integration
-sudo pacman -Rns gnome-contacts gnome-tour gnome-text-editor gnome-calendar gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-console gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno simple-scan snapshot loupe papers decibels gnome-firmware gnome-disk-utility pamac-gtk pamac-cli libpamac
+sudo pacman -Rns gnome-contacts gnome-tour gnome-text-editor gnome-calendar gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-console gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno simple-scan snapshot loupe papers decibels gnome-firmware gnome-disk-utility pamac-gtk pamac-cli libpamac vim
+
+sudo pacman -Syu
 
 # === SECTION 2: System Updates (safe) ===
-sudo pacman -Syu --needed git gnome-console go docker telegram-desktop chromium code
+sudo pacman -S --needed --noconfirm git gnome-console go docker telegram-desktop chromium code
 
 # === SECTION 3: Git config (no shell issues) ===
 git config --global user.name "d1nch8g"
@@ -60,16 +62,22 @@ gsettings set org.gnome.desktop.wm.keybindings switch-applications "['']"
 # === SECTION 9: Wallpaper ===
 gsettings set org.gnome.desktop.background picture-uri "file://$HOME/os/wallpaper.jpg"
 gsettings set org.gnome.desktop.background picture-uri-dark "file://$HOME/os/wallpaper.jpg"
-gsettings set org.gnome.shell favorite-apps "['code-oss.desktop', 'chromium.desktop', 'org.telegram.desktop.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Console.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Settings.desktop', 'code-oss.desktop', 'chromium.desktop', 'org.telegram.desktop.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Console.desktop']"
 
-# === SECTION 10: Docker setup ===
+# === SECTION 10: Gnome folders flattening ===
+
+gsettings set org.gnome.desktop.app-folders folder-children "[]"
+gsettings set org.gnome.desktop.app-folders folder-children "['']" 2>/dev/null || true
+echo "✅ App grid flattened! All apps will appear in a single alphabetical list."
+
+# === SECTION 11: Docker setup ===
 sudo groupadd docker 2>/dev/null  # 2>/dev/null hides "group already exists" error
 sudo usermod -aG docker $USER
 
 sudo systemctl enable docker
 sudo systemctl start docker
 
-# === SECTION 11: Final message ===
+# === SECTION 12: Final message ===
 echo ""
 echo "✅ Script completed!"
 echo "⚠️  IMPORTANT: Log out and log back in (or reboot) for:"
