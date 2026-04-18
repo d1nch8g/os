@@ -10,7 +10,7 @@ done
 sudo pacman -Syu
 
 # === SECTION 2: System Updates (safe) ===
-sudo pacman -S --needed --noconfirm git go docker telegram-desktop chromium code
+sudo pacman -S --needed --noconfirm git go docker telegram-desktop chromium code base-devel
 
 # === SECTION 3: Git config (no shell issues) ===
 git config --global user.name "d1nch8g"
