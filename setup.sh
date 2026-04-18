@@ -3,13 +3,14 @@
 # === SECTION 1: Files & Cleanup (no shell issues) ===
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Rns gnome-layout-switcher gnome-user-docs manjaro-application-utility libpamac-flatpak-plugin pamac-gnome-integration
-sudo pacman -Rns gnome-contacts gnome-tour gnome-text-editor gnome-calendar gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-console gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno simple-scan snapshot loupe papers decibels gnome-firmware gnome-disk-utility pamac-gtk pamac-cli libpamac vim
+for pkg in gnome-layout-switcher gnome-user-docs manjaro-application-utility libpamac-flatpak-plugin pamac-gnome-integration gnome-contacts gnome-tour gnome-text-editor gnome-calendar gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno simple-scan snapshot loupe papers decibels gnome-firmware gnome-disk-utility pamac-gtk pamac-cli libpamac vim; do
+    pacman -Q "$pkg" &>/dev/null && sudo pacman -Rns --noconfirm "$pkg"
+done
 
 sudo pacman -Syu
 
 # === SECTION 2: System Updates (safe) ===
-sudo pacman -S --needed --noconfirm git gnome-console go docker telegram-desktop chromium code
+sudo pacman -S --needed --noconfirm git go docker telegram-desktop chromium code
 
 # === SECTION 3: Git config (no shell issues) ===
 git config --global user.name "d1nch8g"
