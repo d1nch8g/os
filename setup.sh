@@ -1,54 +1,51 @@
-# Avatarka :D
+#!/bin/bash
+
+# === SECTION 1: Files & Cleanup (no shell issues) ===
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Syu --needed go docker docker-compose zsh git nodejs npm gnome-keyring papirus-icon-theme openvpn geary zsh-autosuggestions p7zip telegram-desktop protobuf zip
+sudo pacman -Rns gnome-contacts gnome-tour gnome-text-editor gnome-calendar yelp gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-console gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno gnome-2048 gnome-klotski gnome-nibbles gnome-robots gnome-sudoku gnome-taquin gnome-tetravex hitori gnome-software simple-scan snapshot loupe papers decibels gnome-firmware gnome-color-manager gnome-disk-utility gnome-calendar gnome-characters gnome-chess gnome-maps gnome-music
 
+# === SECTION 2: System Updates (safe) ===
+sudo pacman -Syu --needed go docker telegram-desktop chromium code
+
+# === SECTION 3: Git config (no shell issues) ===
 git config --global user.name "d1nch8g"
 git config --global user.email "d1nch8g@gmail.com"
+git config --global credential.helper store
 
-sudo pacman -S --needed base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
-
-yay -Sy vscodium brave-bin
-
-# Setting up go.
+# === SECTION 4: Environment Setup - SOLUTION 1 ===
+# Write env vars to file (will apply on next shell)
 echo 'export GOROOT=/usr/lib/go' >> ~/.zshrc
 echo 'export GOPATH=$HOME/go' >> ~/.zshrc
 echo 'export PATH=$PATH:/usr/lib/go/bin' >> ~/.zshrc
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
 echo 'export PATH="$PATH:$HOME/go/bin"' >> ~/.zshrc
 
-# Setting up VSCodium.
-# (alias will be set via preconfigured .zshrc)
+# **CRITICAL: Export them NOW for this script**
+export GOROOT=/usr/lib/go
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/lib/go/bin
+export PATH=$PATH:$GOPATH/bin
 
-go install github.com/ktr0731/evans@latest
+# === SECTION 5: Go tools (now works because PATH is set) ===
 go install mvdan.cc/gofumpt@latest
-go install github.com/cweill/gotests/gotests@latest
-go install github.com/fatih/gomodifytags@latest
-go install github.com/josharian/impl@latest
-go install github.com/haya14busa/goplay/cmd/goplay@latest
-go install github.com/go-delve/delve/cmd/dlv@latest
-go install honnef.co/go/tools/cmd/staticcheck@latest
-go install golang.org/x/tools/gopls@latest
-go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.11.4
 
-vscodium --install-extension PKief.material-icon-theme
-vscodium --install-extension esbenp.prettier-vscode
-vscodium --install-extension ms-azuretools.vscode-docker
-vscodium --install-extension redhat.vscode-yaml
-vscodium --install-extension mhutchie.git-graph
-vscodium --install-extension jeff-hykin.mario
-vscodium --install-extension IronGeek.vscode-env
-vscodium --install-extension golang.Go
-vscodium --install-extension bungcip.better-toml
-vscodium --install-extension saoudrizwan.claude-dev
+# === SECTION 6: VS Code extensions ===
+code --install-extension PKief.material-icon-theme
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension mhutchie.git-graph
+code --install-extension jeff-hykin.mario
+code --install-extension golang.Go
+code --install-extension mtxr.sqltools
+code --install-extension mtxr.sqltools-driver-pg
+code --install-extension mtxr.sqltools-driver-sqlite
 
-cp ~/os/settings.json ~/.config/VSCodium/User/settings.json
-cp ~/os/keybindings.json ~/.config/VSCodium/User/keybindings.json
+# === SECTION 7: VS Code configs ===
+cp ~/os/settings.json ~/.config/'Code - OSS'/User/settings.json
+cp ~/os/keybindings.json ~/.config/'Code - OSS'/User/keybindings.json
 
+# === SECTION 8: GNOME keyboard shortcuts ===
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['']"
 
@@ -57,48 +54,24 @@ gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<
 
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications "['']"
-gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
+gsettings set org.gnome.extensions.dash-to-dock show-trash false
 
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
-
-gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
-
-# Set wallpaper
+# === SECTION 9: Wallpaper ===
 gsettings set org.gnome.desktop.background picture-uri "file://$HOME/os/wallpaper.jpg"
 gsettings set org.gnome.desktop.background picture-uri-dark "file://$HOME/os/wallpaper.jpg"
+gsettings set org.gnome.shell favorite-apps "['code-oss.desktop', 'chromium.desktop', 'org.telegram.desktop.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Console.desktop']"
 
-cd ~
-# Install Oh My Zsh non-interactively
-RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install Powerlevel10k theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Install zsh plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# Install preconfigured zsh files
-cp ~/os/.zshrc ~/
-cp ~/os/.p10k.zsh ~/
-
-# Change default shell to zsh
-chsh -s $(which zsh)
-
-# OpenVPN setup
-echo "Enter archive password for VPN configs:"
-read -s vpn_password
-cd /etc/openvpn
-sudo 7z x ~/os/ovpn.zip -p"$vpn_password"
-sudo mv ovpn/* .
-sudo rmdir ovpn
-
-# VPN alias for Belgium
-echo 'alias vpn="cd /etc/openvpn && sudo openvpn --config \"Belgium, Brussels S1.ovpn\""' >> ~/.zshrc
-
-sudo groupadd docker
+# === SECTION 10: Docker setup ===
+sudo groupadd docker 2>/dev/null  # 2>/dev/null hides "group already exists" error
 sudo usermod -aG docker $USER
 
-yay -S mcpelauncher-ui gnome-shell-extension-dash-to-dock
+sudo systemctl enable docker
+sudo systemctl start docker
+
+# === SECTION 11: Final message ===
+echo ""
+echo "✅ Script completed!"
+echo "⚠️  IMPORTANT: Log out and log back in (or reboot) for:"
+echo "   - Docker group permissions to take effect"
+echo "   - New shell environment variables"
+echo "   - Full GNOME session reload"
