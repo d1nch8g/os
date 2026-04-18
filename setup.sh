@@ -3,10 +3,11 @@
 # === SECTION 1: Files & Cleanup (no shell issues) ===
 cp ~/os/ava.jpeg ~/.face
 
-sudo pacman -Rns gnome-contacts gnome-tour gnome-text-editor gnome-calendar yelp gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-console gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno gnome-2048 gnome-klotski gnome-nibbles gnome-robots gnome-sudoku gnome-taquin gnome-tetravex hitori gnome-software simple-scan snapshot loupe papers decibels gnome-firmware gnome-color-manager gnome-disk-utility gnome-calendar gnome-characters gnome-chess gnome-maps gnome-music
+sudo pacman -Rns gnome-layout-switcher gnome-user-docs manjaro-application-utility libpamac-flatpak-plugin pamac-gnome-integration
+sudo pacman -Rns gnome-contacts gnome-tour gnome-text-editor gnome-calendar gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-console gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno simple-scan snapshot loupe papers decibels gnome-firmware gnome-disk-utility pamac-gtk pamac-cli libpamac
 
 # === SECTION 2: System Updates (safe) ===
-sudo pacman -Syu --needed go docker telegram-desktop chromium code
+sudo pacman -Syu --needed git gnome-console go docker telegram-desktop chromium code
 
 # === SECTION 3: Git config (no shell issues) ===
 git config --global user.name "d1nch8g"
@@ -40,6 +41,7 @@ code --install-extension golang.Go
 code --install-extension mtxr.sqltools
 code --install-extension mtxr.sqltools-driver-pg
 code --install-extension mtxr.sqltools-driver-sqlite
+code --install-extension saoudrizwan.claude-dev
 
 # === SECTION 7: VS Code configs ===
 cp ~/os/settings.json ~/.config/'Code - OSS'/User/settings.json
@@ -54,7 +56,6 @@ gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<
 
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications "['']"
-gsettings set org.gnome.extensions.dash-to-dock show-trash false
 
 # === SECTION 9: Wallpaper ===
 gsettings set org.gnome.desktop.background picture-uri "file://$HOME/os/wallpaper.jpg"
