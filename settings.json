@@ -1,5 +1,7 @@
 {
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
   "security.workspace.trust.untrustedFiles": "open",
@@ -19,7 +21,6 @@
   "git.useEditorAsCommitInput": false,
   "git.postCommitCommand": "sync",
   "git.confirmSync": false,
-  "dart.flutterSdkPath": "/opt/flutter",
   "sqltools.autoOpenSessionFiles": false,
   "window.commandCenter": false,
   "[json]": {
@@ -37,40 +38,8 @@
     "path": "proto"
   },
   "editor.inlineSuggest.suppressSuggestions": true,
-  "cody.suggestions.mode": "auto-edit",
-  "cody.rules.enabled": true,
-  "cody.chat.preInstruction": "provide me with exact code blocks, that should be edited, when the entire file is not needed",
   "docker.extension.enableComposeLanguageServer": false,
   "terminal.integrated.scrollback": 2000,
-  "amp.url": "https://ampcode.com/",
-  "amp.commands.allowlist": [
-    "mv",
-    "mv",
-    "true",
-    "rm",
-    "sed",
-    "go",
-    "go",
-    "rm",
-    "find",
-    "rm",
-    "rm",
-    "docker-compose",
-    "sleep",
-    "docker",
-    "chmod",
-    "timeout",
-    "POSTGRES_URL=postgres://postgres:postgres123@localhost:5433/iot_data_registry_test?sslmode=disable",
-    "curl",
-    "cp",
-    "./migrator",
-    "golangci-lint",
-    "make"
-  ],
-  "amp.experimental.connections": true,
-  "amp.experimental.reviewTool": true,
-  "amp.dangerouslyAllowAll": true,
-  "amp.summary.provider": "anthropic",
-  "amp.anthropic.thinking.enabled": false,
-  "terminal.integrated.tabs.enabled": false
+  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.fontFamily": "MesloLGS NF"
 }
