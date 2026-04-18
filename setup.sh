@@ -3,7 +3,7 @@
 # === SECTION 1: Files & Cleanup (no shell issues) ===
 cp ~/os/ava.jpeg ~/.face
 
-for pkg in gnome-layout-switcher gnome-user-docs manjaro-application-utility libpamac-flatpak-plugin pamac-gnome-integration gnome-contacts gnome-tour gnome-text-editor gnome-calendar gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno simple-scan snapshot loupe papers decibels gnome-firmware gnome-disk-utility pamac-gtk pamac-cli libpamac vim; do
+for pkg in gnome-layout-switcher gnome-user-docs manjaro-application-utility libpamac-flatpak-plugin pamac-gnome-integration gnome-contacts gnome-tour gnome-text-editor gnome-calendar gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno simple-scan snapshot loupe papers decibels gnome-firmware gnome-disk-utility pamac-gtk pamac-cli libpamac ex-vi-compat vim timeshift-autosnap-manjaro collision endeavour file-roller fragments kvantum-manjaro manjaro-hello micro timeshift gufw; do
     pacman -Q "$pkg" &>/dev/null && sudo pacman -Rns --noconfirm "$pkg"
 done
 
