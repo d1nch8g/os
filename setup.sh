@@ -69,6 +69,7 @@ code --install-extension golang.Go
 code --install-extension mtxr.sqltools
 code --install-extension mtxr.sqltools-driver-pg
 code --install-extension mtxr.sqltools-driver-sqlite
+code --install-extension saoudrizwan.claude-dev
 
 # === Docker setup ===
 sudo groupadd docker 2>/dev/null  # 2>/dev/null hides "group already exists" error
