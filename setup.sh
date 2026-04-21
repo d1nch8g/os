@@ -77,9 +77,11 @@ sudo usermod -aG docker $USER
 sudo systemctl enable docker
 sudo systemctl start docker
 
-# === Hide chromium bookmarks ===
+# === Chromium setup ===
 
 [ -f ~/.config/chromium/Default/Preferences ] && sed -i 's/"show_on_all_tabs":true/"show_on_all_tabs":false/' ~/.config/chromium/Default/Preferences || echo "Chromium preferences not found - run Chromium at least once first"
+sudo rm -f /etc/chromium/master_preferences
+rm -rf ~/.config/chromium
 
 # === Final message ===
 echo ""
