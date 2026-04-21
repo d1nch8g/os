@@ -41,5 +41,9 @@
   "docker.extension.enableComposeLanguageServer": false,
   "terminal.integrated.scrollback": 2000,
   "terminal.integrated.tabs.enabled": false,
-  "terminal.integrated.fontFamily": "MesloLGS NF"
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "github.copilot.inlineSuggest.enable": false,
+  "github.copilot.editor.enableAutoCompletions": false,
+  "github.copilot.chat.enabled": false,
+  "chat.disableAIFeatures": true
 }
