@@ -21,7 +21,7 @@ gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>Up']"
 # === Wallpaper ===
 gsettings set org.gnome.desktop.background picture-uri "file://$HOME/os/wallpaper.jpg"
 gsettings set org.gnome.desktop.background picture-uri-dark "file://$HOME/os/wallpaper.jpg"
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Settings.desktop', 'code-oss.desktop', 'chromium.desktop', 'org.telegram.desktop.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Console.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Settings.desktop', 'code-oss.desktop', 'chromium.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Console.desktop']"
 
 # === Gnome folders flattening ===
 gsettings set org.gnome.desktop.app-folders folder-children "[]"
@@ -40,7 +40,7 @@ done
 
 # === System Updates (safe) ===
 sudo pacman -Syu
-sudo pacman -S --needed --noconfirm git go docker docker-compose telegram-desktop chromium code base-devel
+sudo pacman -S --needed --noconfirm git go docker docker-compose chromium code base-devel
 
 # === Environment Setup - SOLUTION 1 ===
 # Write env vars to file (will apply on next shell)
