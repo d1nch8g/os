@@ -32,6 +32,7 @@ echo "✅ App grid flattened! All apps will appear in a single alphabetical list
 git config --global user.name "d1nch8g"
 git config --global user.email "d1nch8g@gmail.com"
 git config --global credential.helper store
+echo 'Defaults timestamp_timeout=60' | sudo tee /etc/sudoers.d/timeout
 
 # === Cleanup (no shell issues) ===
 for pkg in gnome-layout-switcher gnome-user-docs manjaro-application-utility libpamac-flatpak-plugin pamac-gnome-integration gnome-contacts gnome-tour gnome-text-editor gnome-calendar gnome-characters gnome-chess gnome-music gnome-system-monitor gnome-maps gnome-boxes gnome-calculator gnome-weather gnome-font-viewer gnome-mines gnome-logs gnome-clocks gnome-tweaks gnome-connections baobab quadrapassel iagno simple-scan snapshot loupe papers decibels gnome-firmware gnome-disk-utility pamac-gtk pamac-cli libpamac ex-vi-compat vim timeshift-autosnap-manjaro collision endeavour file-roller fragments kvantum-manjaro manjaro-hello micro timeshift gufw malcontent thunderbird firefox gnome-shell-extension-gtk4-desktop-icons-ng webapp-manager showtime; do
